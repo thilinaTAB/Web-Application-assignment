@@ -188,3 +188,46 @@
     }
   });
 })(jQuery);
+
+/*new js code*/
+
+$(document).on("click", ".js-scroll-trigger", function (event) {
+  event.preventDefault();
+
+  const target = $(this.getAttribute("href"));
+  if (target.length) {
+    $("html, body").animate(
+      {
+        scrollTop: target.offset().top - 50, // Adjust offset if needed
+      },
+      1000
+    );
+  }
+});
+
+/*new*/
+
+// Smooth scroll function
+$(document).ready(function () {
+  // Add smooth scrolling to all links with class "js-scroll-trigger"
+  $("a.js-scroll-trigger").on("click", function (event) {
+    // Check if the clicked element has a valid href
+    if (this.hash !== "") {
+      event.preventDefault(); // Prevent default anchor click behavior
+
+      var hash = this.hash;
+
+      // Animate the scroll
+      $("html, body").animate(
+        {
+          scrollTop: $(hash).offset().top - 50, // Adjust 50px if you need a different offset
+        },
+        1000, // Duration of the scroll in milliseconds
+        function () {
+          // Add hash to the URL after scrolling (optional)
+          window.location.hash = hash;
+        }
+      );
+    }
+  });
+});

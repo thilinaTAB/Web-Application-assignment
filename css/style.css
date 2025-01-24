@@ -1528,3 +1528,37 @@ a:focus {
 }
 
 /*# sourceMappingURL=maps/style.css.map */
+
+/*new css codes*/
+.page-title.bg-1 {
+  position: relative;
+  background-image: url("images/about-bg.jpg"); /* Set a background image */
+  background-size: cover;
+  background-position: center;
+  padding: 80px 0;
+}
+
+.page-title .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+}
+
+.page-title .block {
+  position: relative;
+  z-index: 1;
+}
+
+.page-title .text-white {
+  color: #fff;
+}
+
+.page-title h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+}
