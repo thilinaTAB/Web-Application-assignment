@@ -95,11 +95,7 @@
           <div class="row align-items-center justify-content-between">
             <div class="col-lg-6">
               <div class="copyright">
-                &copy; Copyright Reserved to
-                <span class="text-color">Novena</span> by
-                <a href="https://themefisher.com/" target="_blank"
-                  >Themefisher</a
-                >
+              <p>&copy; 2025 Care Compass Hospital | All Rights Reserved.</p>
               </div>
             </div>
             <div class="col-lg-6">
