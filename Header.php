@@ -87,7 +87,7 @@
                 <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="#about">About Us</a>
+                <a class="nav-link js-scroll-trigger" href="index.php#about">About Us</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="service.html">Services</a>

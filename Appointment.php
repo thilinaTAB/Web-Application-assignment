@@ -8,14 +8,8 @@ include_once 'Header.php';
     <div class="row">
       <div class="col-md-12">
         <div class="block text-center">
-          <span class="text-white">Book your Seat</span>
-          <h1 class="text-capitalize mb-5 text-lg">Appoinment</h1>
-
-          <!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">Book your Seat</a></li>
-          </ul> -->
+          <span class="text-white">Access Quality Healthcare Services Online</span>
+          <h1 class="text-capitalize mb-5 text-lg">Book Your Doctor's Appointment</h1>
         </div>
       </div>
     </div>
@@ -30,21 +24,22 @@ include_once 'Header.php';
             <div class="feature-icon mb-3">
               <i class="icofont-support text-lg"></i>
             </div>
-             <span class="h3">Call for an Emergency Service!</span>
-              <h2 class="text-color mt-3">+84 789 1256 </h2>
+            <a href="tel:+94 11 59 59 999">
+            <span class="h3">Call for Live Agent!</span>
+              <h2 class="text-color mt-3">+94 11 59 59 999 </h2> </a>
           </div>
       </div>
 
       <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Book an appoinment</h2>
-            <p class="mb-4">Mollitia dicta commodi est recusandae iste, natus eum asperiores corrupti qui velit . Iste dolorum atque similique praesentium soluta.</p>
-               <form id="#" class="appoinment-form" method="post" action="#">
+            <p class="mb-4">Please provide correct details for offer you a Quality Service </p>
+               <form id="appointment-form" class="appoinment-form" method="post" action="Include/Appointment.inc.php">
                     <div class="row">
                          <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>Choose Department</option>
+                                <select class="form-control" id="DoctorSpec" name="Specialization">
+                                  <option>Choose Specializationt</option>
                                   <option>Software Design</option>
                                   <option>Development cycle</option>
                                   <option>Software Development</option>
@@ -55,9 +50,10 @@ include_once 'Header.php';
                                 </select>
                             </div>
                         </div>
+                        
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <select class="form-control" id="exampleFormControlSelect2">
+                                <select class="form-control" id="exampleFormControlSelect2" name="doctor">
                                   <option>Select Doctors</option>
                                   <option>Software Design</option>
                                   <option>Development cycle</option>
@@ -97,7 +93,7 @@ include_once 'Header.php';
                         <textarea name="message" id="message" class="form-control" rows="6" placeholder="Your Message"></textarea>
                     </div>
 
-                    <a class="btn btn-main btn-round-full" href="confirmation.html">Make Appoinment<i class="icofont-simple-right ml-2"></i></a>
+                    <button type="submit" name="submit" class="btn btn-main btn-round-full">Make Appoinment<i class="icofont-simple-right ml-2"></i></button>
                 </form>
             </div>
         </div>
@@ -108,4 +104,4 @@ include_once 'Header.php';
 
 <?php 
 include_once 'Footer.php';
-?>
+?> 
