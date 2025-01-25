@@ -41,7 +41,7 @@
                 <li class="list-inline-item">
                   <a href="mailto:support@gmail.com"
                     ><i class="icofont-support-faq mr-2"></i
-                    >support@cchospitals.com</a
+                    >support@cchospitals.lk</a
                   >
                 </li>
                 <li class="list-inline-item">

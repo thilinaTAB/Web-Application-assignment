@@ -17,7 +17,7 @@ include_once 'Header.php';
             <div class="testimonial-block">
               <div class="client-info">
                 <h4>Amazing service!</h4>
-                <span>John Partho</span>
+                <span>Pathum Silva</span>
               </div>
               <p>
                 They provide great service facilty consectetur adipisicing elit.
