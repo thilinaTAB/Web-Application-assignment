@@ -55,7 +55,7 @@
            
                 <a href="tel:5959">
                 <i class="bi bi-telephone-plus"></i>
-                  <span class="h4">Imergency Call : </span>
+                  <span class="h4">Emergency Call : </span>
                   <span class="h3">5959</span>
                 </a>
               </div>
