@@ -24,3 +24,4 @@ function createUser($conn, $patiantName, $patiantAge, $patiantPhone, $patiantEma
     header("location: ../Appointment.php?error=none");
     exit();
 }
+
