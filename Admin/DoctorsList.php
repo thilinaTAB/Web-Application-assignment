@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo "SQL Error";
+        echo "SQL Error: " . mysqli_error($conn);
     } else {
         mysqli_stmt_bind_param($stmt, "ss", $doctor_name, $specialization);
         mysqli_stmt_execute($stmt);
@@ -19,22 +19,21 @@ if (isset($_POST['submit'])) {
     }
 }
 
-// Handle deletion of a doctor
-if (isset($_GET['DocID'])) {
-    $id = $_GET['DocID'];
+
+if (isset($_GET['id'])) {  
+    $id = $_GET['id'];
 
     // Delete the doctor from the database
-    $sql = "DELETE FROM doctors WHERE id = ?";
+    $sql = "DELETE FROM doctors WHERE DocID = ?";  
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo "SQL Error";
+        echo "SQL Error: " . mysqli_error($conn);
     } else {
         mysqli_stmt_bind_param($stmt, "i", $id);
         mysqli_stmt_execute($stmt);
         echo "<p>Doctor deleted successfully!</p>";
-        header("Location: DoctorsList.php");  // Refresh the page to avoid resubmission
-        exit();
+        header("Location: DoctorsList.php"); 
     }
 }
 ?>
@@ -119,35 +118,35 @@ if (isset($_GET['DocID'])) {
             </div>
 
             <div class="col-lg-12 mt-5">
-                <h2 class="mb-2 title-color">Doctors List</h2>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Doctor's Name</th>
-                            <th>Specialization</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        // Fetch and display the doctors from the database
-                        $sql = "SELECT * FROM doctors";
-                        $result = mysqli_query($conn, $sql);
+    <h2 class="mb-2 title-color">Doctors List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Doctor's Name</th>
+                <th>Specialization</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            // Fetch and display the doctors from the database
+            $sql = "SELECT * FROM doctors";
+            $result = mysqli_query($conn, $sql);
 
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            echo "<td>" . $row['DocID'] . "</td>";
-                            echo "<td>" . $row['DoctorName'] . "</td>";
-                            echo "<td>" . $row['DocSpec'] . "</td>";
-                            // Make sure the 'id' is passed correctly in the URL for deletion
-                            echo "<td><a href='DoctorsList.php?id=" . $row['DocID'] . "' class='btn btn-danger'>Delete</a></td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['DocID'] . "</td>";
+                echo "<td>" . $row['DoctorName'] . "</td>";
+                echo "<td>" . $row['DocSpec'] . "</td>";
+                // Add confirmation message before deletion
+                echo "<td><a href='DoctorsList.php?id=" . $row['DocID'] . "' class='btn btn-danger' onclick=\"return confirm('Are you sure you want to delete this doctor?');\">Delete</a></td>";
+                echo "</tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
         </div>
     </div>
 </section>
