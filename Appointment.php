@@ -37,13 +37,13 @@ include_once 'Header.php';
                <form id="appointment-form" class="appoinment-form" method="post" 
                action="Include/Appointment.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-9">
                             <div class="form-group">
                                 <input name="name" id="name" type="text" class="form-control" 
                                 placeholder="Your Name" required>
                             </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 <input name="age" id="age" type="Number" class="form-control" 
                                 placeholder="Your Age" required>
@@ -61,38 +61,37 @@ include_once 'Header.php';
                                 placeholder="Email" required>
                             </div>
                         </div>
+                        
 
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="doctor" name="doctor" required>
-                                  <option value="">Select Doctors</option>
-                                  <option>AAA</option>
-                                  <option>BBB</option>
-                                  <option>CCC</option>
-                                  <option>DDD</option>
-                                  <option>EEE</option>
-                                  <option>FFF</option>
-                                  <option>GGG</option>
-                                </select>
-                            </div>
-                        </div>
+                        <div class="col-lg-10">
+    <div class="form-group">
+        <select class="form-control" id="doctor" name="doctor" required>
+            <option value="">Select Doctor</option>
+            <?php
+            // Include the database connection file
+            include_once 'Include/dbh.inc.php';
 
-                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="doctorSpec" name="doctorSpec" required>
-                                  <option value="">Choose Specialization</option>
-                                  <option>Cardiologist</option>
-                                  <option>Neurologist</option>
-                                  <option>Dermatologist</option>
-                                  <option>Pediatrician</option>
-                                  <option>Orthopedic Surgeon</option>
-                                  <option>Oncologist</option>
-                                  <option>Endocrinologist</option>
-                                </select>
-                            </div>
-                        </div>
+            // Query to fetch doctor names and their specializations
+            $sql = "SELECT DoctorName, DocSpec FROM doctors";
+            $result = mysqli_query($conn, $sql);
 
-                        <div class="col-lg-6">
+            // Check if there are results
+            if (mysqli_num_rows($result) > 0) {
+                // Loop through each row and create an option tag
+                while ($row = mysqli_fetch_assoc($result)) {
+                    // Combine Doctor Name with Specialization
+                    $doctorInfo = "Dr. " . $row['DoctorName'] . " - " . $row['DocSpec'];
+                    echo "<option value='" . $row['DoctorName'] . "'>" . $doctorInfo . "</option>";
+                }
+            } else {
+                echo "<option value=''>No doctors available</option>";
+            }
+            ?>
+        </select>
+    </div>
+</div>
+
+                        <div class="col-lg-3">
                             <div class="form-group">
                                 <select class="form-control" id="branch" name="branch" required>
                                   <option value="">Select Branch</option>
@@ -103,7 +102,7 @@ include_once 'Header.php';
                             </div>
                         </div>
 
-                         <div class="col-lg-6">
+                         <div class="col-lg-3">
                             <div class="form-group">
                                 <input name="date" id="date" type="Date" class="form-control" 
                                 placeholder=" Date (dd/mm/yyyy)" required>
@@ -141,7 +140,6 @@ function confirmSubmission() {
     const phone = document.getElementById("phone").value;
     const email = document.getElementById("email").value;
     const doctor = document.getElementById("doctor").value;
-    const doctorSpec = document.getElementById("doctorSpec").value;
     const branch = document.getElementById("branch").value;
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
@@ -154,7 +152,6 @@ function confirmSubmission() {
         Phone: ${phone}
         Email: ${email}
         Doctor: ${doctor}
-        Specialization: ${doctorSpec}
         Branch: ${branch}
         Date: ${date}
         Time: ${time}

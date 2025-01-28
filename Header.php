@@ -109,13 +109,8 @@
                   <li>
                     <a class="dropdown-item" href="doctorTab.php">Doctors</a>
                   </li>
-                  <li>
-                    <a class="dropdown-item" href="doctor-single.html"
-                      >Doctor Single</a
-                    >
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="appoinment.html"
+                   <li>
+                    <a class="dropdown-item" href="Appointment.php"
                       >Appoinment</a
                     >
                   </li>

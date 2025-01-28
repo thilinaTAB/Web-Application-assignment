@@ -165,7 +165,7 @@
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td>" . $row['DoctorName'] . "</td>";
+                echo "<td>" ."Dr. ". $row['DoctorName'] . "</td>";
                 echo "<td>" . $row['DocSpec'] . "</td>";
                 echo "<td>";
                 echo "<a href='?delete_id=" . $row['DocID'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this doctor?');\">Delete</a>";
@@ -177,9 +177,8 @@
         }
         ?>
     </tbody>
+
 </table>
-
-
                 <!-- Patient Information Section -->
                 <h2 id="patient-information">Patient Information</h2>
                 <p>Manage patient records here.</p>
@@ -193,7 +192,6 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Doctor</th>
-                                <th>Specialization</th>
                                 <th>Branch</th>
                                 <th>Date</th>
                                 <th>Action</th>
@@ -212,7 +210,7 @@
                                     echo "<td>" . $row['PatientPhone'] . "</td>";
                                     echo "<td>" . $row['PatientEmail'] . "</td>";
                                     echo "<td>" . $row['DoctorName'] . "</td>";
-                                    echo "<td>" . $row['DoctorSpec'] . "</td>";
+
                                     echo "<td>" . $row['AppBranch'] . "</td>";
                                     echo "<td>" . $row['AppDate'] . "</td>";
                                     echo "<td>";

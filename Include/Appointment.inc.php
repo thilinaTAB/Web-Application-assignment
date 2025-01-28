@@ -5,7 +5,6 @@ if(isset($_POST["submit"])){
     $patiantPhone =$_POST ["phone"];
     $patiantEmail =$_POST ["email"];
     $DocName =$_POST ["doctor"];
-    $DocSpec =$_POST ["doctorSpec"];
     $AppBranch = $_POST ["branch"];
     $patiantDate =$_POST ["date"];
 
@@ -13,10 +12,10 @@ if(isset($_POST["submit"])){
     require_once 'dbh.inc.php';
     require_once 'function.inc.php';
 
-    if (emptyInputs($patiantName,$patiantAge,$patiantPhone,$patiantEmail,$DocName,$DocSpec,$AppBranch,$patiantDate) !== false) {
+    if (emptyInputs($patiantName,$patiantAge,$patiantPhone,$patiantEmail,$DocName,$AppBranch,$patiantDate) !== false) {
         exit();
     }
-    createUser($conn,$patiantName,$patiantAge,$patiantPhone,$patiantEmail,$DocName,$DocSpec,$AppBranch,$patiantDate);
+    createUser($conn,$patiantName,$patiantAge,$patiantPhone,$patiantEmail,$DocName,$AppBranch,$patiantDate);
 }
 else{
     header("location:../Appointment.php");
