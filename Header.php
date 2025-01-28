@@ -90,7 +90,7 @@
                 <a class="nav-link js-scroll-trigger" href="index.php#about">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="service.html">Services</a>
+                <a class="nav-link" href="service.php">Services</a>
               </li>
 
               
@@ -107,7 +107,7 @@
                 ></a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown03">
                   <li>
-                    <a class="dropdown-item" href="doctor.html">Doctors</a>
+                    <a class="dropdown-item" href="doctorTab.php">Doctors</a>
                   </li>
                   <li>
                     <a class="dropdown-item" href="doctor-single.html"
