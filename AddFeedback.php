@@ -9,7 +9,7 @@ include_once 'Header.php';
       <div class="col-md-12">
         <div class="block text-center">
           <span class="text-white">Access Quality Healthcare Services Online</span>
-          <h1 class="text-capitalize mb-5 text-lg">Book Your Doctor's Appointment</h1>
+          <h1 class="text-capitalize mb-5 text-lg">Feedbacks</h1>
         </div>
       </div>
     </div>
@@ -32,10 +32,10 @@ include_once 'Header.php';
 
       <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-            <h2 class="mb-2 title-color">Drop</h2>
-            <p class="mb-4">Please provide correct details for offer you a Quality Service </p>
-               <form id="appointment-form" class="appoinment-form" method="post" 
-               action="Include/Appointment.inc.php" onsubmit="return confirmSubmission();">
+            <h2 class="mb-2 title-color">Every Voice Counts – Share Yours Today! 😊</h2>
+            <h3 class="mb-4">Thanks For Choosing Us!</h3>
+               <form id="fb-form" class="appoinment-form" method="post" 
+               action="Include/Feedbac.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
                     <div class="col-lg-9">
                             <div class="form-group">
@@ -43,87 +43,23 @@ include_once 'Header.php';
                                 placeholder="Your Name" required>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <input name="age" id="age" type="Number" class="form-control" 
-                                placeholder="Your Age" required>
-                            </div>
-                        </div>
+
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" 
-                                placeholder="Phone Number" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input name="email" id="email" type="Email" class="form-control" 
-                                placeholder="Email" required>
+                                <input name="FbTitle" id="FbTitle" type="text" class="form-control" 
+                                placeholder="Key Topic" required>
                             </div>
                         </div>
                         
-
-                        <div class="col-lg-10">
-    <div class="form-group">
-        <select class="form-control" id="doctor" name="doctor" required>
-            <option value="">Select Doctor</option>
-            <?php
-            // Include the database connection file
-            include_once 'Include/dbh.inc.php';
-
-            // Query to fetch doctor names and their specializations
-            $sql = "SELECT DoctorName, DocSpec FROM doctors";
-            $result = mysqli_query($conn, $sql);
-
-            // Check if there are results
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through each row and create an option tag
-                while ($row = mysqli_fetch_assoc($result)) {
-                    // Combine Doctor Name with Specialization
-                    $doctorInfo = "Dr. " . $row['DoctorName'] . " - " . $row['DocSpec'];
-                    echo "<option value='" . $row['DoctorName'] . "'>" . $doctorInfo . "</option>";
-                }
-            } else {
-                echo "<option value=''>No doctors available</option>";
-            }
-            ?>
-        </select>
-    </div>
-</div>
-
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <select class="form-control" id="branch" name="branch" required>
-                                  <option value="">Select Branch</option>
-                                  <option>Kandy</option>
-                                  <option>Colombo</option>
-                                  <option>Kurunegala</option>
-                                </select>
+                        <div class="col-lg-12">
+                            <div class="form-groupform-group-2 mb-4">
+                                <textarea name="fbNote" id="fbNote" type="text" class="form-control" 
+                                placeholder="Go Ahead" required> </textarea>
                             </div>
                         </div>
-
-                         <div class="col-lg-3">
-                            <div class="form-group">
-                                <input name="date" id="date" type="Date" class="form-control" 
-                                placeholder=" Date (dd/mm/yyyy)" required>
-                            </div>
-                        </div>               
-
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <select class="form-control" id="time" name="Apptime" required>
-                                  <option value="">Select Session </option>
-                                  <option>Morning Session (8.00-10.00)</option>
-                                  <option>Evening Session (16.00-18.00)</option>
-                                  <option>Night Session (21.00-23.00)</option>
-                                  </select>
-                            </div>
-                        </div>
-
-                    </div>
 
                     <button type="submit" name="submit" class="btn btn-main btn-round-full">
-                      Make Appointment<i class="icofont-simple-right ml-2"></i></button>
+                      Submit<i class="icofont-simple-right ml-2"></i></button>
                 </form>
             </div>
         </div>
@@ -133,34 +69,18 @@ include_once 'Header.php';
 </section>
 
 <script>
-function confirmSubmission() {
-    // Gather form data
-    const name = document.getElementById("name").value;
-    const age = document.getElementById("age").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const doctor = document.getElementById("doctor").value;
-    const branch = document.getElementById("branch").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
 
-    // Construct the confirmation message
-    const confirmationMessage = `
-        Please confirm your appointment details:
-        Name: ${name}
-        Age: ${age}
-        Phone: ${phone}
-        Email: ${email}
-        Doctor: ${doctor}
-        Branch: ${branch}
-        Date: ${date}
-        Time: ${time}
-    `;
 
-    // Display the confirmation dialog
-    return confirm(confirmationMessage);
-}
+// Show popup if feedback was successfully submitted
+window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success') === 'feedbacksubmitted') {
+        alert("Thank you for your feedback! 😊");
+        window.location.href = "feedback.php";
+    }
+};
 </script>
+
 
 <?php 
 include_once 'Footer.php';

@@ -135,8 +135,8 @@
                   </li>
 
                   <li>
-                    <a class="dropdown-item" href="blog-single.html"
-                      >Blog Single</a
+                    <a class="dropdown-item" href="AddFeedback.php"
+                      >Add Yours</a
                     >
                   </li>
                 </ul>
