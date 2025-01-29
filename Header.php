@@ -120,7 +120,7 @@
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="blog-sidebar.html"
+                  href="Feedback.php"
                   id="dropdown05"
                   data-toggle="dropdown"
                   aria-haspopup="true"
@@ -129,8 +129,8 @@
                 ></a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown05">
                   <li>
-                    <a class="dropdown-item" href="blog-sidebar.html"
-                      >Blog with Sidebar</a
+                    <a class="dropdown-item" href="Feedback.php"
+                      >View Feedbacks</a
                     >
                   </li>
 
