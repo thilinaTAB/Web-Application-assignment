@@ -157,8 +157,14 @@ function confirmSubmission() {
         Time: ${time}
     `;
 
-    // Display the confirmation dialog
-    return confirm(confirmationMessage);
+     // Show confirmation dialog
+     if (confirm(confirmationMessage)) {
+        // Show success alert after submission
+        alert("Appointment submitted successfully!");
+        
+        // Submit the form
+        document.getElementById("appointment-form").submit();
+    }
 }
 </script>
 
