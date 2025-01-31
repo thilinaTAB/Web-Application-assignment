@@ -160,7 +160,7 @@ function confirmSubmission() {
      // Show confirmation dialog
      if (confirm(confirmationMessage)) {
         // Show success alert after submission
-        alert("Appointment submitted successfully!");
+        alert("Appointment submitted successfully!\nWe will contact you soon for varify your appointment");
         
         // Submit the form
         document.getElementById("appointment-form").submit();
