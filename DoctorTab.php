@@ -6,10 +6,10 @@ include_once 'include/dbh.inc.php'; // Database connection
 ?>
 
                 <!-- Doctors Table -->
-                <table class="table table-bordered">
+                <table class="table">
     <thead>
         <tr>
-            <th>Doctor's Name</th>
+            <th class=>Doctor's Name</th>
             <th>Specialization</th>
 
         </tr>

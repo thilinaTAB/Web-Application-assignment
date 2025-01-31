@@ -114,7 +114,7 @@ include_once 'Header.php';
               </p>
 
               <a
-                href="service.html"
+                href="Service.php"
                 class="btn btn-main-2 btn-round-full btn-icon"
                 >Services<i class="icofont-simple-right ml-3"></i
               ></a>
