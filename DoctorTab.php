@@ -22,7 +22,7 @@ include_once 'include/dbh.inc.php'; // Database connection
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td><ul><li>" . $row['DoctorName'] . "</td>";
+                echo "<td><ul><li>"."Dr. "  . $row['DoctorName'] . "</td>";
                 echo "<td>" . $row['DocSpec'] . "</td>";
             }
         } else {
