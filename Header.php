@@ -39,7 +39,7 @@
             <div class="col-lg-6">
               <ul class="top-bar-info list-inline-item pl-0 mb-0">
                 <li class="list-inline-item">
-                  <a href="mailto:support@gmail.com"
+                  <a href="mailto:support@cchospitals.lk"
                     ><i class="icofont-support-faq mr-2"></i
                     >support@cchospitals.lk</a
                   >
@@ -142,7 +142,7 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
+                <a class="nav-link" href="Contact.php">Contact Us</a>
               </li>
             </ul>
           </div>
