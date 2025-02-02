@@ -69,6 +69,9 @@
             <img src="images/CCH_LOGO.png" alt="logo" class="img-fluid" />
           </a>
 
+         
+
+
           <button
             class="navbar-toggler collapsed"
             type="button"
@@ -147,5 +150,38 @@
             </ul>
           </div>
         </div>
+
+        
       </nav>
+      <div class="col-12">
+        <div class="d-flex justify-content-end">
+    <input type="text" id="searchQuery" class="form-control col-lg-3" placeholder="Search for services..." onkeyup="searchService()">
+    <div id="searchResults"></div>
+</div>
+</div>
+
+<script>
+    function searchService() {
+        var query = document.getElementById("searchQuery").value;
+
+        if (query.length < 2) { // Start searching only after 2+ characters
+            document.getElementById("searchResults").innerHTML = "";
+            return;
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "include/search.inc.php?query=" + encodeURIComponent(query), true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                document.getElementById("searchResults").innerHTML = xhr.responseText;
+            }
+        };
+
+        xhr.send();
+    }
+</script>
+
+
+        </div>
     </header>

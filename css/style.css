@@ -1566,3 +1566,26 @@ a:focus {
   color: #e12454; /* Change text color to #e12454 on hover */
   transition: color 0.3s ease; /* Smooth transition effect */
 }
+
+.search-item {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.search-item:hover {
+  background: #f8f9fa;
+}
+#searchResults {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 9999;
+  position: fixed; /* Floating above the page */
+  top: 50px; /* Adjust based on your layout */
+  left: 50%;
+  transform: translateX(-50%); /* Center the dropdown */
+  width: 300px; /* Adjust width as necessary */
+}
