@@ -15,17 +15,17 @@
 
               <ul class="list-inline footer-socials mt-4">
                 <li class="list-inline-item">
-                  <a href="https://www.facebook.com/themefisher"
+                  <a href="#"
                     ><i class="icofont-facebook"></i
                   ></a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="https://twitter.com/themefisher"
+                  <a href="#"
                     ><i class="icofont-twitter"></i
                   ></a>
                 </li>
                 <li class="list-inline-item">
-                  <a href="https://www.pinterest.com/themefisher/"
+                  <a href="#"
                     ><i class="icofont-linkedin"></i
                   ></a>
                 </li>
@@ -92,35 +92,15 @@
         </div>
 
         <div class="footer-btm py-4 mt-5">
-          <div class="row align-items-center justify-content-between">
-            <div class="col-lg-6">
-              <div class="copyright">
-              <p>&copy; 2025 Care Compass Hospital | All Rights Reserved.</p>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="subscribe-form text-lg-right mt-5 mt-lg-0">
-                <form action="#" class="subscribe">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Your Email address"
-                  />
-                  <a href="#" class="btn btn-main-2 btn-round-full"
-                    >Subscribe</a
-                  >
-                </form>
-              </div>
-            </div>
-          </div>
+  <div class="row">
+    <div class="col-12 text-center"> <!-- Ensures full width and centers content -->
+      <p>&copy; 2025 Care Compass Hospital | All Rights Reserved.</p>
+    </div>
+  </div>
+</div>
 
-          <div class="row">
-            <div class="col-lg-4">
-              <a class="backtop js-scroll-trigger" href="#top">
-                <i class="icofont-long-arrow-up"></i>
-              </a>
-            </div>
-          </div>
+
+        
         </div>
       </div>
     </footer>
@@ -142,10 +122,6 @@
 
     <script src="plugins/shuffle/shuffle.min.js"></script>
     <script src="plugins/counterup/jquery.counterup.min.js"></script>
-    <!-- Google Map -->
-    <script src="plugins/google-map/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>
-
     <script src="js/script.js"></script>
     <script src="js/contact.js"></script>
   </body>

@@ -45,6 +45,22 @@ require_once 'Include/dbh.inc.php'; // Database connection
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-6">
+        <div class="section-title d-flex flex-column justify-content-center align-items-center">
+          <a
+            href="AddFeedback.php"
+            class="btn btn-main-2 btn-round-full btn-icon"
+          >
+            Add Yours
+          </a>
+          <div class="divider mx-auto my-4"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <?php include_once 'Footer.php'; ?>

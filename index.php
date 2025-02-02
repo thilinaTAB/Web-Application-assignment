@@ -399,86 +399,21 @@ include_once 'Header.php';
         <div class="row">
           <div class="col-lg-6 offset-lg-6">
             <div class="section-title">
-              <h2 class="mb-4">What they say about us</h2>
-              <div class="divider my-4"></div>
-            </div>
+            <div class="feature-item mb-5 mb-lg-0">
+            <div class="feature-icon mb-4">
+            <a
+                href="Feedback.php"
+                class="btn btn-main-2 btn-round-full btn-icon"
+                ><i class="icofont-simple-right ml-3"></i
+                ><h4>See What they say about us</h4></a>
           </div>
         </div>
-        <div class="row align-items-center">
-          <div class="col-lg-6 testimonial-wrap offset-lg-6">
-            <div class="testimonial-block">
-              <div class="client-info">
-                <h4>Amazing service!</h4>
-                <span>John Partho</span>
-              </div>
-              <p>
-                They provide great service facilty consectetur adipisicing elit.
-                Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos
-                adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet
-                nostrum nemo commodi numquam quod.
-              </p>
-              <i class="icofont-quote-right"></i>
-            </div>
-
-            <div class="testimonial-block">
-              <div class="client-info">
-                <h4>Expert doctors!</h4>
-                <span>Mullar Sarth</span>
-              </div>
-              <p>
-                They provide great service facilty consectetur adipisicing elit.
-                Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos
-                adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet
-                nostrum nemo commodi numquam quod.
-              </p>
-              <i class="icofont-quote-right"></i>
-            </div>
-
-            <div class="testimonial-block">
-              <div class="client-info">
-                <h4>Good Support!</h4>
-                <span>Kolis Mullar</span>
-              </div>
-              <p>
-                They provide great service facilty consectetur adipisicing elit.
-                Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos
-                adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet
-                nostrum nemo commodi numquam quod.
-              </p>
-              <i class="icofont-quote-right"></i>
-            </div>
-
-            <div class="testimonial-block">
-              <div class="client-info">
-                <h4>Nice Environment!</h4>
-                <span>Partho Sarothi</span>
-              </div>
-              <p>
-                They provide great service facilty consectetur adipisicing elit.
-                Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos
-                adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet
-                nostrum nemo commodi numquam quod.
-              </p>
-              <i class="icofont-quote-right"></i>
-            </div>
-
-            <div class="testimonial-block">
-              <div class="client-info">
-                <h4>Modern Service!</h4>
-                <span>Kolis Mullar</span>
-              </div>
-              <p>
-                They provide great service facilty consectetur adipisicing elit.
-                Itaque rem, praesentium, iure, ipsum magnam deleniti a vel eos
-                adipisci suscipit fugit placeat. Quibusdam laboriosam eveniet
-                nostrum nemo commodi numquam quod.
-              </p>
-              <i class="icofont-quote-right"></i>
-            </div>
-          </div>
-        </div>
+        <div class="divider mx-auto my-4"></div>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
+</section>
     
     <?php
 include_once 'Footer.php';

@@ -1562,3 +1562,7 @@ a:focus {
   color: #fff;
   margin-bottom: 20px;
 }
+.hover-text:hover {
+  color: #e12454; /* Change text color to #e12454 on hover */
+  transition: color 0.3s ease; /* Smooth transition effect */
+}
