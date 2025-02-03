@@ -497,7 +497,7 @@ a:focus {
   position: relative;
   overflow: hidden;
   background: #fff;
-  background: url("../images/bg/slider-bg-1.jpg") no-repeat;
+  background: url("../images/bg/slider-bg-2.jpg") no-repeat;
   background-size: cover;
   min-height: 550px;
 }
@@ -510,8 +510,9 @@ a:focus {
   font-size: 60px;
   line-height: 1.2;
   letter-spacing: -1.2px;
-  text-transform: capitalize;
-  color: #223a66;
+
+  color: #cbc5f0;
+  /*color: #223a66;*/
 }
 
 .letter-spacing {

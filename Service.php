@@ -59,18 +59,33 @@ $conn->close();
         </div>
     </div>
 </section>
+<section>
+<div class="block text-center col-lg-12">
+          <h3>Hospital Services</h3>
+          </div>
+</section>
+
+
 
 <section class="section service-2">
     <div class="container">
         <div class="row">
-
-
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
                         <img src="images/service/service-1.jpg" alt="" class="img-fluid" />
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Child care</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <p class="mb-4">
+                              Dedicated to providing specialized medical care for infants, 
+                              children, and adolescents, paediatrics focuses on the physical, 
+                              emotional, and developmental health of young patients. Paediatricians 
+                              diagnose and treat a wide range of childhood illnesses, from common 
+                              infections to more complex health conditions. The service also includes 
+                              regular health check-ups, vaccinations, growth and development 
+                              monitoring, and guidance for parents on nutrition, safety, and mental 
+                              well-being. The goal is to promote healthy growth and prevent illness 
+                              through tailored care for younger populations.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -79,16 +94,35 @@ $conn->close();
                         <img src="images/service/service-2.jpg" alt="" class="img-fluid" />
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Personal Care</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <p class="mb-4">
+                              Offers professional medical advice, diagnosis, 
+                              and treatment for a wide range of common health conditions. 
+                              The service is typically aimed at addressing acute and chronic 
+                              illnesses, as well as providing preventive care. Doctors assess 
+                              symptoms, perform physical exams, and may recommend further tests 
+                              or treatments. This service is often the first point of contact for 
+                              individuals seeking healthcare, ensuring timely interventions for 
+                              various health concerns.
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
-                        <img src="images/service/service-3.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-2.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">CT scan</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <h4 class="mt-4 mb-2 title-color">Cardiology</h4>
+                            <p class="mb-4">
+                            Cardiology focuses on the diagnosis, treatment, and prevention of heart 
+                            diseases and cardiovascular conditions. This specialized service covers 
+                            a wide range of heart-related issues, including coronary artery disease, 
+                            heart failure, arrhythmias, and hypertension. Cardiologists use advanced 
+                            diagnostic tools such as ECGs, echocardiograms, and stress tests to evaluate 
+                            heart function. Treatment may involve lifestyle changes, medications, or 
+                            surgical interventions such as angioplasty or heart surgery. The goal is 
+                            to improve heart health, manage risk factors, and enhance the quality of 
+                            life for patients with cardiovascular concerns.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -118,10 +152,36 @@ $conn->close();
                             <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
                         </div>
                     </div>
+                </div> 
+        </div>
+    </div>
+</section>
+
+
+<section>
+<div class="block text-center col-lg-12">
+          <h3>Hospital Services</h3>
+          </div>
+</section>
+
+
+
+<section class="section service-2">
+    <div class="container">
+        <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-3.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">CT scan</h4>
+                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                        </div>
+                    </div>
                 </div>
         </div>
     </div>
 </section>
+
 
 <section class="section cta-page">
     <div class="container">

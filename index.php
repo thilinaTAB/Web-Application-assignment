@@ -106,7 +106,7 @@ function redirectToService(type, id) {
                   <i class="icofont-ui-clock"></i>
                 </div>
                 <span>Timing schedule</span>
-                <h4 class="mb-3">Working Hours</h4>
+                <h4 class="mb-3">OPD Working Hours</h4>
                 <ul class="w-hours list-unstyled">
                   <li class="d-flex justify-content-between">
                     Mon - Fri : <span>6:00 - 23:00</span>
@@ -126,7 +126,7 @@ function redirectToService(type, id) {
                 <h2 class="mb-3">Call 5959</h2>
                 </a>
 
-                Get ALl time support for emergency.We have introduced the
+                Get all time support for emergency.We have introduced the
                   principle of family medicine.Get Conneted with us for any
                   urgency .
                 </p>
@@ -263,68 +263,6 @@ function redirectToService(type, id) {
       </div>
     </section>
 
-    <section class="fetaure-page">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6">
-            <div class="about-block-item mb-5 mb-lg-0">
-              <img
-                src="images/about/about-1.jpg"
-                alt=""
-                class="img-fluid w-100"
-              />
-              <h4 class="mt-3">Healthcare for Kids</h4>
-              <p>
-                Voluptate aperiam esse possimus maxime repellendus, nihil quod
-                accusantium .
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="about-block-item mb-5 mb-lg-0">
-              <img
-                src="images/about/about-2.jpg"
-                alt=""
-                class="img-fluid w-100"
-              />
-              <h4 class="mt-3">Medical Counseling</h4>
-              <p>
-                Voluptate aperiam esse possimus maxime repellendus, nihil quod
-                accusantium .
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="about-block-item mb-5 mb-lg-0">
-              <img
-                src="images/about/about-3.jpg"
-                alt=""
-                class="img-fluid w-100"
-              />
-              <h4 class="mt-3">Modern Equipments</h4>
-              <p>
-                Voluptate aperiam esse possimus maxime repellendus, nihil quod
-                accusantium .
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <div class="about-block-item">
-              <img
-                src="images/about/about-4.jpg"
-                alt=""
-                class="img-fluid w-100"
-              />
-              <h4 class="mt-3">Qualified Doctors</h4>
-              <p>
-                Voluptate aperiam esse possimus maxime repellendus, nihil quod
-                accusantium .
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section awards">
       <div class="container">
         <div class="row align-items-center">
