@@ -1,6 +1,54 @@
 <?php
 include_once 'Header.php';
 ?>
+<!-- Search Bar -->
+<div class="col-12">
+    <div class="d-flex justify-content-end position-relative">
+        <input type="text" id="searchQuery" class="form-control col-lg-3" placeholder="Search for services..." onkeyup="searchService()">
+        <div id="searchResults"></div>
+    </div>
+</div>
+
+
+<script>
+    function searchService() {
+    var query = document.getElementById("searchQuery").value;
+    var searchResults = document.getElementById("searchResults");
+
+    if (query.length < 2) { 
+        searchResults.innerHTML = "";
+        searchResults.style.display = "none";
+        return;
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "include/search.inc.php?query=" + encodeURIComponent(query), true);
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            searchResults.innerHTML = xhr.responseText;
+            searchResults.style.display = "block"; // Show results
+        }
+    };
+
+    xhr.send();   
+}
+
+// Hide search results when clicking outside
+document.addEventListener("click", function(event) {
+    var searchBox = document.getElementById("searchQuery");
+    var searchResults = document.getElementById("searchResults");
+
+    if (!searchBox.contains(event.target) && !searchResults.contains(event.target)) {
+        searchResults.style.display = "none";
+    }
+});
+function redirectToService(type, id) {
+    window.location.href = "service.php?type=" + type + "&id=" + id;
+}
+
+</script>
+
 <!-- Slider Start -->
  <section class="banner">
   <div class="container">
@@ -15,7 +63,6 @@ include_once 'Header.php';
           <h1 class="mb-3 mt-3">
             Empowering Your Journey to Better Health
           </h1>
-<!---->
           <p class="mb-4 pr-5" style="color: darkred;">
           We are committed to providing compassionate, professional, 
           and reliable health care services to help you achieve a healthier and happier life.

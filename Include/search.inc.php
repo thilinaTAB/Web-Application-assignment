@@ -1,16 +1,15 @@
 <?php
-require 'dbh.inc.php'; // Ensure the correct path to your DB connection file
+require 'dbh.inc.php'; // Ensure correct DB connection
 
 if (isset($_GET['query'])) {
-    $query = $_GET['query'];
-    $query = "%$query%"; // Prepare for LIKE search
+    $query = "%" . $_GET['query'] . "%"; // Prepare for LIKE search
 
     $sql = "
-        SELECT service_name AS name, description FROM hospital_services WHERE service_name LIKE ?
+        SELECT id, service_name AS name, 'hospital' AS type FROM hospital_services WHERE service_name LIKE ?
         UNION
-        SELECT test_name AS name, test_description FROM laboratory_services WHERE test_name LIKE ?
+        SELECT id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
         UNION
-        SELECT service_name AS name, availability FROM emergency_services WHERE service_name LIKE ?
+        SELECT id, service_name AS name, 'emergency' AS type FROM emergency_services WHERE service_name LIKE ?
     ";
 
     $stmt = $conn->prepare($sql);
@@ -20,7 +19,8 @@ if (isset($_GET['query'])) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div><strong>" . htmlspecialchars($row['name']) . "</strong>: " . htmlspecialchars($row['description']) . "</div>";
+            echo "<div><a href='service.php?type=" . htmlspecialchars($row['type']) . "&id=" . intval($row['id']) . "'>" .
+                 "<strong>" . htmlspecialchars($row['name']) . "</strong></a></div>";
         }
     } else {
         echo "<div>No results found.</div>";
