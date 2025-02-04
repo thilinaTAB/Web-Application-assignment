@@ -147,6 +147,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="Contact.php">Contact Us</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.php">USER</a>
+              </li>
             </ul>
           </div>
         </div>      

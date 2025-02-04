@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["submit"])){
+if(isset($_POST["appsubmit"])){
     $patiantName =$_POST ["name"];
     $patiantAge =$_POST ["age"];
     $patiantPhone =$_POST ["phone"];

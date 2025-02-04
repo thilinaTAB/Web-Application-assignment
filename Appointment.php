@@ -122,7 +122,7 @@ include_once 'Header.php';
 
                     </div>
 
-                    <button type="submit" name="submit" class="btn btn-main btn-round-full">
+                    <button type="submit" name="appsubmit" class="btn btn-main btn-round-full">
                       Make Appointment<i class="icofont-simple-right ml-2"></i></button>
                 </form>
             </div>

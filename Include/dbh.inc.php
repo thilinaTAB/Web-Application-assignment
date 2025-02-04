@@ -1,7 +1,7 @@
 <?php
 $serverName="localhost";
 $dbUserName="cchAdmin";
-$dbPassword="vf5nNFKHxBQd(qC_";
+$dbPassword=")MJy1*e8FLdQd_P-";
 $dbName="cch_db";
 
 $conn = mysqli_connect($serverName,$dbUserName,$dbPassword,$dbName);

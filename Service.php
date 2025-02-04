@@ -61,7 +61,7 @@ $conn->close();
 </section>
 <section>
 <div class="block text-center col-lg-12">
-          <h3>Hospital Services</h3>
+         <br> <h3>Hospital Services</h3>
           </div>
 </section>
 
@@ -160,7 +160,7 @@ $conn->close();
 
 <section>
 <div class="block text-center col-lg-12">
-          <h3>Hospital Services</h3>
+          <h3>Laborotory Services</h3>
           </div>
 </section>
 

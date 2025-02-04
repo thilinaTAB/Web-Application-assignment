@@ -56,17 +56,17 @@ function redirectToService(type, id) {
       <div class="col-lg-6 col-md-12 col-xl-7">
         <div class="block">
           <div class="divider mb-3"></div>
-          <span class="text-uppercase text-sm letter-spacing">
+          <span class="text-uppercase text-sm letter-spacing" style="color:rgb(0, 0, 0);">
             Your Complete Health Care Partner
           </span>
 
           <h1 class="mb-3 mt-3">
             Empowering Your Journey to Better Health
           </h1>
-          <p class="mb-4 pr-5" style="color: darkred;">
+          <h4 class="mb-4 pr-5" style="color: darkred;">
           We are committed to providing compassionate, professional, 
           and reliable health care services to help you achieve a healthier and happier life.
-        </p>
+</h4>
                        
 <div class="btn-container">
                 <a
@@ -142,18 +142,18 @@ function redirectToService(type, id) {
         <div class="row align-items-center">
           <div class="col-lg-4 col-sm-6">
             <div class="about-img">
-              <img src="images/about/img-1.jpg" alt="" class="img-fluid" />
-              <img src="images/about/img-2.jpg" alt="" class="img-fluid mt-4" />
+              <img src="images/about/img1.jpg" alt="" class="img-fluid" />
+              <img src="images/about/img2.jpg" alt="" class="img-fluid mt-4" />
             </div>
           </div>
           <div class="col-lg-4 col-sm-6">
             <div class="about-img mt-4 mt-lg-0">
-              <img src="images/about/img-3.jpg" alt="" class="img-fluid" />
+              <img src="images/about/img3.jpg" alt="" class="img-fluid" />
             </div>
           </div>
           <div class="col-lg-4">
             <div class="about-content pl-4 mt-4 mt-lg-0">
-              <h2 class="title-color">Personal care <br />& healthy living</h2>
+              <h2 class="title-color">Personal care <br>& healthy living</h2>
               <p class="mt-4 mb-5">
                 We provide best leading medicle service Nulla perferendis veniam
                 deleniti ipsum officia dolores repellat laudantium obcaecati
@@ -323,60 +323,12 @@ function redirectToService(type, id) {
             </div>
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="team-block mb-5 mb-lg-0">
-              <img src="images/team/1.jpg" alt="" class="img-fluid w-100" />
-
-              <div class="content">
-                <h4 class="mt-4 mb-0">
-                  <a href="doctor-single.html">John Marshal</a>
-                </h4>
-                <p>Internist, Emergency Physician</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="team-block mb-5 mb-lg-0">
-              <img src="images/team/2.jpg" alt="" class="img-fluid w-100" />
-
-              <div class="content">
-                <h4 class="mt-4 mb-0">
-                  <a href="doctor-single.html">Marshal Root</a>
-                </h4>
-                <p>Surgeon, Сardiologist</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="team-block mb-5 mb-lg-0">
-              <img src="images/team/3.jpg" alt="" class="img-fluid w-100" />
-
-              <div class="content">
-                <h4 class="mt-4 mb-0">
-                  <a href="doctor-single.html">Siamon john</a>
-                </h4>
-                <p>Internist, General Practitioner</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="team-block">
-              <img src="images/team/4.jpg" alt="" class="img-fluid w-100" />
-
-              <div class="content">
-                <h4 class="mt-4 mb-0">
-                  <a href="doctor-single.html">Rishat Ahmed</a>
-                </h4>
-                <p>Orthopedic Surgeon</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="col-lg-6 offset-lg-4">
+        <a href="DoctorTab.php"  target="_blank" class="btn btn-main btn-round-full"
+        >See Today Avialable Doctors</a>
       </div>
+      </div>
+
     </section>
 
     <section class="section testimonial">

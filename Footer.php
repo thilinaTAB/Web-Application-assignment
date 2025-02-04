@@ -74,7 +74,7 @@
                   <span class="h6 mb-0">Support Available for 24/7</span>
                 </div>
                 <h4 class="mt-2">
-                  <a href="tel:+23-345-67890">support@cchospitals.lk</a>
+                  <a href="mailto:support@cchospitals.lk">support@cchospitals.lk</a>
                 </h4>
               </div>
 
