@@ -1,3 +1,21 @@
+<?php
+session_start();
+
+// Check if the user is logged in as admin
+if (!isset($_SESSION["admin"]) || $_SESSION["admin"] !== true) {
+    header("location:../Login.php?error=restrictedaccess");
+    exit();
+}
+
+// Handle logout
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header("location:../Login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,20 +107,19 @@
             echo "Error preparing statement: " . mysqli_error($conn);
         }
     }
-    
     ?>
 
     <!-- Top Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand" href="index.php">
-            <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid" />
-          </a>
-</div>
+            <a class="navbar-brand" href="index.php">
+                <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid" />
+            </a>
+        </div>
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Admin Dashboard</a>
             <div class="ms-auto">
-                <a href="logout.php" class="btn btn-danger">
+                <a href="?logout=true" class="btn btn-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
@@ -149,36 +166,36 @@
                 </form>
 
                 <!-- Doctors Table -->
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Doctor's Name</th>
-            <th>Specialization</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php
-        $sql = "SELECT * FROM doctors";
-        $result = mysqli_query($conn, $sql);
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Doctor's Name</th>
+                            <th>Specialization</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT * FROM doctors";
+                        $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" ."Dr. ". $row['DoctorName'] . "</td>";
-                echo "<td>" . $row['DocSpec'] . "</td>";
-                echo "<td>";
-                echo "<a href='?delete_id=" . $row['DocID'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this doctor?');\">Delete</a>";
-                echo "</td>";
-                echo "</tr>";
-            }
-        } else {
-            echo "<tr><td colspan='3'>No records found.</td></tr>";
-        }
-        ?>
-    </tbody>
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>" . "Dr. " . $row['DoctorName'] . "</td>";
+                                echo "<td>" . $row['DocSpec'] . "</td>";
+                                echo "<td>";
+                                echo "<a href='?delete_id=" . $row['DocID'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this doctor?');\">Delete</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='3'>No records found.</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
 
-</table>
                 <!-- Patient Information Section -->
                 <h2 id="patient-information">Patient Information</h2>
                 <p>Manage patient records here.</p>
@@ -210,7 +227,6 @@
                                     echo "<td>" . $row['PatientPhone'] . "</td>";
                                     echo "<td>" . $row['PatientEmail'] . "</td>";
                                     echo "<td>" . $row['DoctorName'] . "</td>";
-
                                     echo "<td>" . $row['AppBranch'] . "</td>";
                                     echo "<td>" . $row['AppDate'] . "</td>";
                                     echo "<td>";

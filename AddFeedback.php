@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["userid"])) {
+    header("location:Login.php?error=notloggedin");
+    exit();
+}
+
 include_once 'Header.php';
 ?>
 
