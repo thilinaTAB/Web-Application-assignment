@@ -1,3 +1,49 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+echo '<div style="position: absolute; top: 10px; right: 10px;">';
+
+if (isset($_SESSION['username'])) {
+    // If the user is logged in, show a dropdown menu
+    echo '<div class="dropdown">
+            <h3><a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Hi! ' . htmlspecialchars($_SESSION['username']) . '
+            </a></h3>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item text-white bg-dark" href="Logout.php">Logout</a></li>
+            </ul>
+          </div>';
+} else {
+    // If not logged in, show the Login link
+    echo '<a href="Login.php" class="nav-link text-white">Login</a>';
+}
+
+echo '</div>';
+?>
+
+
+
+<script>
+function toggleDropdown() {
+    var dropdown = document.getElementById("dropdownMenu");
+    dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+}
+
+// Close dropdown if clicked outside
+window.onclick = function(event) {
+    if (!event.target.matches("button")) {
+        var dropdown = document.getElementById("dropdownMenu");
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+        }
+    }
+};
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="eng">
   <head>
@@ -49,7 +95,7 @@
               </ul>
             </div>
             <div class="col-lg-6">
-              <div class="text-lg-right top-right-bar mt-2 mt-lg-0">
+              <div class="top-right-bar mt-2 mt-lg-0">
                 <a href="tel:5959">
                   <i class="bi bi-telephone-plus"></i>
                   <span class="h4">Emergency Call : </span>
