@@ -32,7 +32,7 @@ if (isset($_GET['logout'])) {
             background-color: #f8f9fa;
         }
         .sidebar {
-            height: 100vh;
+            height: 200vh;
             background: #343a40;
             color: #fff;
             padding: 20px;
@@ -50,6 +50,8 @@ if (isset($_GET['logout'])) {
         }
         .sidebar .active {
             background: #007bff;
+            color: white;
+            font-weight: bold;
         }
         .navbar {
             background: #fff;
@@ -112,12 +114,14 @@ if (isset($_GET['logout'])) {
     <!-- Top Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../Logout.php">
                 <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid" />
             </a>
         </div>
         <div class="container-fluid">
+            <h1>
             <a class="navbar-brand" href="#">Admin Dashboard</a>
+            </h1>
             <div class="ms-auto">
                 <a href="?logout=true" class="btn btn-danger">
                     <i class="fas fa-sign-out-alt"></i> Logout
@@ -133,13 +137,13 @@ if (isset($_GET['logout'])) {
                 <h3 class="text-center mb-4">Menu</h3>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="#doctor-management" class="nav-link active">
+                        <a href="#doctor-management" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'doctor-management') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-user-md"></i> Doctor Management
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#patient-information" class="nav-link">
-                            <i class="fas fa-users"></i> Patient Information
+                        <a href="#patient-information" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                            <i class="fas fa-users"></i> Appointments Information
                         </a>
                     </li>
                 </ul>
@@ -197,7 +201,7 @@ if (isset($_GET['logout'])) {
                 </table>
 
                 <!-- Patient Information Section -->
-                <h2 id="patient-information">Patient Information</h2>
+                <h2 id="patient-information">Appointments Information</h2>
                 <p>Manage patient records here.</p>
 
                 <div class="table-responsive">
