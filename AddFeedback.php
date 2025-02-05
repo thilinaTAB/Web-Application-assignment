@@ -10,6 +10,35 @@ if (!isset($_SESSION["userid"])) {
 
 include_once 'Header.php';
 ?>
+  <div class="col-12">
+  <div class="d-flex justify-content-end position-relative">
+                <?php
+                if (isset($_SESSION["username"])) {
+                  // If the user is logged in, display their name and a dropdown with a logout option
+                  echo '
+                  <h3><a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="dropdownUser"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Hello ' . $_SESSION["username"] . ' !<i class="icofont-thin-down"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownUser">
+                    <li>
+                      <a class="dropdown-item" href="Logout.php">Logout</a>
+                    </li>
+                  </ul></h3>';
+                } else {
+                  // If the user is not logged in, display a link to the login page
+                  echo '<a class="nav-link" href="Login.php">Login</a>';
+                }
+
+                ?>
+                </div>
+              </div>
 
 <section class="page-title bg-1">
   <div class="overlay"></div>

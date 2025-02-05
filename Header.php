@@ -132,32 +132,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="Contact.php">Contact Us</a>
               </li>
-              <li class="nav-item dropdown">
-                <?php
-                if (isset($_SESSION["username"])) {
-                  // If the user is logged in, display their name and a dropdown with a logout option
-                  echo '
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="dropdownUser"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    ' . $_SESSION["username"] . ' <i class="icofont-thin-down"></i>
-                  </a>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownUser">
-                    <li>
-                      <a class="dropdown-item" href="Logout.php">Logout</a>
-                    </li>
-                  </ul>';
-                } else {
-                  // If the user is not logged in, display a link to the login page
-                  echo '<a class="nav-link" href="Login.php">Login</a>';
-                }
-                ?>
-              </li>
             </ul>
           </div>
         </div>
