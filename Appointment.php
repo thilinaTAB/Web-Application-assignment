@@ -84,13 +84,13 @@ include_once 'Header.php';
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <input name="age" id="age" type="Number" class="form-control" 
+                                <input name="age" id="age" type="Number" min="0" class="form-control" 
                                 placeholder="Your Age" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="Number" class="form-control" 
+                                <input name="phone" id="phone" type="tel" class="form-control" 
                                 placeholder="Phone Number" required>
                             </div>
                         </div>

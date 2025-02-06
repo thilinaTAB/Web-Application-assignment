@@ -70,6 +70,73 @@ include_once 'header.php';
     </div>
 </section>
 
+<!-- Quary-->
+<br><br>
+      <div class="col-lg-12 col-sm-6 col-md-6">
+           <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
+            <h2 class="mb-2 title-color">Any Queries?</h2>
+               <form id="fb-form" class="appoinment-form" method="post" 
+               action="Include/Queries.inc.php" onsubmit="return confirmSubmission();">
+                    <div class="row">
+                    <div class="col-lg-9">
+                            <div class="form-group">
+                                <input name="Qname" id="Qname" type="text" class="form-control" 
+                                placeholder="Your Name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="Qemail" id="Qemail" type="Email" class="form-control" 
+                                placeholder="Email" required>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="Qphone" id="Qphone" type="tel" class="form-control" 
+                                placeholder="Phone Number" required>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input name="Qtitle" id="Qtitle" type="text" class="form-control" 
+                                placeholder="Key Topic" required>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <div class="form-groupform-group-2 mb-4">
+                                <textarea name="Qbody" id="Qbody" type="text" class="form-control" 
+                                rows="8" placeholder="Your Message" required> </textarea>
+                            </div>
+                        </div>
+
+                    <button type="submit" name="submit" class="btn btn-main btn-round-full">
+                      Submit<i class="icofont-simple-right ml-2"></i></button>
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+
+// Show popup if feedback was successfully submitted
+window.onload = function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success') && urlParams.get('success') === 'feedbacksubmitted') {
+        alert("Thank you for your feedback! 😊");
+        window.location.href = "feedback.php";
+    }
+};
+</script>
+
 <?php
 include_once 'Footer.php';
 ?>
