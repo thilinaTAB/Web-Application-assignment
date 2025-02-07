@@ -109,6 +109,23 @@ if (isset($_GET['logout'])) {
             echo "Error preparing statement: " . mysqli_error($conn);
         }
     }
+
+        if (isset($_GET['delete_queries'])) {
+            $Q_id = $_GET['delete_queries'];
+        
+            $sql = "DELETE FROM queries WHERE Qid = ?";
+            $stmt = mysqli_stmt_init($conn);
+        
+            if (mysqli_stmt_prepare($stmt, $sql)) {
+                mysqli_stmt_bind_param($stmt, "i", $Q_id);
+                mysqli_stmt_execute($stmt);
+                header("Location: AdminDash.php"); // Redirect to refresh the page
+                exit();
+            } else {
+                echo "Error preparing statement: " . mysqli_error($conn);
+            }
+    }
+    
     ?>
 
     <!-- Top Navigation Bar -->
@@ -147,7 +164,7 @@ if (isset($_GET['logout'])) {
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#patient-information" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                        <a href="#Queries-information" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-users"></i> Queries
                         </a>
                     </li>
@@ -215,7 +232,7 @@ if (isset($_GET['logout'])) {
                             <tr>
                                 <th>Name</th>
                                 <th>Age</th>
-                                <th>Phone</th>
+                                <th>Contact Number</th>
                                 <th>Email</th>
                                 <th>Doctor</th>
                                 <th>Branch</th>
@@ -238,8 +255,54 @@ if (isset($_GET['logout'])) {
                                     echo "<td>" . $row['DoctorName'] . "</td>";
                                     echo "<td>" . $row['AppBranch'] . "</td>";
                                     echo "<td>" . $row['AppDate'] . "</td>";
+                                    echo "<td>" . $row['App_at'] . "</td>";
                                     echo "<td>";
                                     echo "<a href='?delete_patient=" . $row['PatientId'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this patient?');\">Delete</a>";
+                                    echo "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='10'>No records found.</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!--Queries-->
+
+                <h2 id="Queries-information">Queries</h2>
+                <p>See what they ask</p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Time Added</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $sql = "SELECT * FROM queries";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row['Qname'] . "</td>";
+                                    echo "<td>" . $row['Qphone'] . "</td>";
+                                    echo "<td>" . $row['Qemail'] . "</td>";
+                                    echo "<td>" . $row['Qtitle'] . "</td>";
+                                    echo "<td>" . $row['Qbody'] . "</td>";
+                                    echo "<td>" . $row['Qcreated_at'] . "</td>";
+                                    echo "<td>";
+                                    echo "<a href='?delete_queries=" . $row['Qid'] . "' class='btn btn-danger btn-sm' onclick=\"return confirm('Are you sure you want to delete this query?');\">Delete</a>";
                                     echo "</td>";
                                     echo "</tr>";
                                 }

@@ -6,6 +6,19 @@ include_once 'include/dbh.inc.php'; // Database connection
 ?>
 
                 <!-- Doctors Table -->
+                <section class="page-title bg-1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="block text-center">
+                    <h1> Available Doctors Today!</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br><br>
                 <table class="table table-striped table-dark col-lg-6" style="margin-left:auto; margin-right:auto;">
     <thead>
         <tr>
@@ -31,7 +44,7 @@ include_once 'include/dbh.inc.php'; // Database connection
         ?>
     </tbody>
 </table>
-
+<br><br>
     <?php
 include_once 'Footer.php';
 ?>

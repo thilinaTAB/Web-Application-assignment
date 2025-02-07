@@ -148,10 +148,10 @@ window.onclick = function(event) {
                 ></a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown03">
                   <li>
-                    <a class="dropdown-item" href="doctorTab.php">Doctors</a>
+                    <a class="dropdown-item" href="doctorTab.php">Available Doctors Today!</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="Appointment.php">Appointment</a>
+                    <a class="dropdown-item" href="Appointment.php">Make an Appointment</a>
                   </li>
                 </ul>
               </li>
@@ -183,5 +183,3 @@ window.onclick = function(event) {
         </div>
       </nav>
     </header>
-  </body>
-</html>
