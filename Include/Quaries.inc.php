@@ -1,8 +1,8 @@
 <?php
 
 // Function to check for empty fields
-function emptyQuaries($fbName, $FbTitle, $fbNote) {
-    if (empty($fbName) || empty($FbTitle) || empty($fbNote)) {
+function emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody) {
+    if (empty($Qname) || empty($Qemail) || empty($Qphone) || empty($QTitle) || empty($Qbody)) {
         return true;
     } else {
         return false;
@@ -10,20 +10,20 @@ function emptyQuaries($fbName, $FbTitle, $fbNote) {
 }
 
 // Function to insert feedback into the database
-function submitFB($conn, $fbName, $FbTitle, $fbNote) {
-    $sql = "INSERT INTO feedback (FbName, Topic, FbNote) VALUES (?,?,?)";
+function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody) {
+    $sql = "INSERT INTO queries (Qname, Qemail, Qphone, Qtitle, Qbody ) VALUES (?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         die("SQL statement failed: " . mysqli_error($conn)); // Show error if statement fails
     }
 
-    mysqli_stmt_bind_param($stmt, "sss", $fbName, $FbTitle, $fbNote);
+    mysqli_stmt_bind_param($stmt, "ssiss", $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
     // Redirect back to feedback page with success message
-    header("location: ../AddFeedback.php?success=feedbacksubmitted");
+    header("location: ../Contact.php?success=queriessubmitted");
     exit();
 }
 
@@ -31,21 +31,23 @@ function submitFB($conn, $fbName, $FbTitle, $fbNote) {
 if (isset($_POST["submit"])) {
     require_once 'dbh.inc.php'; // Ensure database connection file is included
 
-    $fbName = $_POST["name"];
-    $FbTitle = $_POST["FbTitle"];
-    $fbNote = $_POST["fbNote"];
+    $Qname = $_POST["Qname"];
+    $Qemail = $_POST["Qemail"];
+    $Qphone = $_POST["Qphone"];
+    $QTitle = $_POST["Qtitle"];
+    $Qbody = $_POST["Qbody"];
 
 
     // Check for empty fields
-    if (emptyfb($fbName, $FbTitle, $fbNote)) {
-        header("location: ../AddFeedback.php?error=emptyfields");
+    if (emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody)) {
+        header("location: ../Contact.php?error=emptyfields");
         exit();
     }
 
-    // Call function to submit feedback
-    submitFB($conn, $fbName, $FbTitle, $fbNote);
+    // Call function to submit Query
+    submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
 } else {
-    header("location: ../AddFeedback.php");
+    header("location: ../Contact.php");
     exit();
 }
 ?>

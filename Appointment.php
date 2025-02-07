@@ -4,13 +4,17 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION["userid"])) {
-    header("location:Login.php?error=notloggedin");
+    echo '<script>
+            alert("Please login to make an appointment.");
+            window.location.href = "Login.php?error=notloggedin";
+          </script>';
     exit();
 }
 
 include_once 'Header.php';
 
 ?>
+
   <div class="col-12">
   <div class="d-flex justify-content-end position-relative">
                 <?php

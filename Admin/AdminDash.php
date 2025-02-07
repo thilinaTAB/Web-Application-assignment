@@ -146,6 +146,11 @@ if (isset($_GET['logout'])) {
                             <i class="fas fa-users"></i> Appointments Information
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="#patient-information" class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                            <i class="fas fa-users"></i> Queries
+                        </a>
+                    </li>
                 </ul>
             </div>
 

@@ -27,18 +27,20 @@ include_once 'header.php';
     <div class="container">
          <div class="row">
             <div class="col-lg-6 col-sm-6 col-md-6">
+            <a href="tel:+94 11 59 59 999">
                 <div class="contact-block mb-4 mb-lg-0">
                     <i class="icofont-live-support"></i>
                     <h5>Call Us</h5>
-                    <a href="tel:+94 11 59 59 999">+94 11 59 59 999</a>
+                    +94 11 59 59 999</a>
                 </div>
             </div>
             
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="contact-block mb-4 mb-lg-0">
+                <a href="mailto:support@cchospitals.lk">
                     <i class="icofont-support-faq"></i>
                     <h5>Email Us</h5>
-                    <a href="mailto:support@cchospitals.lk">support@cchospitals.lk</a>
+                    support@cchospitals.lk</a>
                 </div>
             </div>        
 
@@ -70,13 +72,13 @@ include_once 'header.php';
     </div>
 </section>
 
-<!-- Quary-->
+<!-- Quaries-->
 <br><br>
       <div class="col-lg-12 col-sm-6 col-md-6">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-            <h2 class="mb-2 title-color">Any Queries?</h2>
-               <form id="fb-form" class="appoinment-form" method="post" 
-               action="Include/Queries.inc.php" onsubmit="return confirmSubmission();">
+            <h2 class="mb-2 title-color">How Can We Help You?</h2>
+               <form id="q-form" class="appoinment-form" method="post" 
+               action="Include\Quaries.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
                     <div class="col-lg-9">
                             <div class="form-group">
@@ -103,7 +105,7 @@ include_once 'header.php';
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <input name="Qtitle" id="Qtitle" type="text" class="form-control" 
-                                placeholder="Key Topic" required>
+                                placeholder="Subject" required>
                             </div>
                         </div>
                         
@@ -127,12 +129,14 @@ include_once 'header.php';
 <script>
 
 
-// Show popup if feedback was successfully submitted
+// Show popup if query was successfully submitted
 window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('success') && urlParams.get('success') === 'feedbacksubmitted') {
-        alert("Thank you for your feedback! 😊");
-        window.location.href = "feedback.php";
+    if (urlParams.has('success') && urlParams.get('success') === 'queriessubmitted') {
+        alert("Thank you. We will respond you soon! 😊");
+        setTimeout(function() {
+            window.location.href = "Contact.php";
+        }, 500); // Wait 500ms before redirecting
     }
 };
 </script>
