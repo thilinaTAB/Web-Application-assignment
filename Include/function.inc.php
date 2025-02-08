@@ -54,7 +54,7 @@ function createNewUser($conn, $username, $email, $userid, $password) {
     mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $userid, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location:../Signup.php?error=none");
+    header("location:../Login.php?error=none");
     exit();
 }
 
@@ -68,8 +68,10 @@ function loginUser($conn, $username, $password) {
     $sql = "SELECT * FROM users WHERE Uuserid = ? OR Uemail = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location:../Login.php?error=stmtfailed");
-        exit();
+        echo '<script>
+        alert("Account Created Successfully. Please Login");
+        window.location.href = "../Login.php?error=notloggedin";
+      </script>';
     }
 
     mysqli_stmt_bind_param($stmt, "ss", $username, $username);
@@ -79,8 +81,10 @@ function loginUser($conn, $username, $password) {
     if ($row = mysqli_fetch_assoc($result)) {
         $pwdCheck = password_verify($password, $row['Upassword']);
         if ($pwdCheck === false) {
-            header("location:../Login.php?error=wrongpassword");
-            exit();
+            echo '<script>
+            alert("Please check your password.");
+            window.location.href = "../Login.php?error=notloggedin";
+          </script>';
         } else {
             session_start();
             $_SESSION["userid"] = $row["Uuserid"];
@@ -89,8 +93,11 @@ function loginUser($conn, $username, $password) {
             exit();
         }
     } else {
-        header("location:../Login.php?error=usernotfound");
-        exit();
+        echo '<script>
+            alert("Please check your username and password.");
+            window.location.href = "../Login.php?error=notloggedin";
+          </script>';
+    exit();
     }
 }
 
