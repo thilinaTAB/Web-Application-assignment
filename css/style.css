@@ -659,7 +659,33 @@ a:focus {
   padding-top: 12px;
 }
 
-/*# sourceMappingURL=maps/style.css.map */
+.backtop {
+  position: fixed;
+  background: #e12454;
+  z-index: 9999;
+  display: inline-block;
+  right: 55px;
+  width: 60px;
+  height: 60px;
+  bottom: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  border-radius: 50px;
+}
+
+.backtop i {
+  color: #fff;
+  font-size: 20px;
+}
+
+.reveal {
+  transition: all 0.3s;
+  cursor: pointer;
+  opacity: 1;
+}
 
 /*new css codes*/
 .page-title.bg-1 {

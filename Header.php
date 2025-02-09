@@ -183,3 +183,26 @@ window.onclick = function(event) {
         </div>
       </nav>
     </header>
+
+    <button id="scrollToTop" class="backtop js-scroll-trigger" style="display: none;">
+    <i class="icofont-arrow-up"></i>
+</button>
+
+<script>
+const scrollToTopBtn = document.getElementById("scrollToTop");
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+};
+
+scrollToTopBtn.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+</script>
