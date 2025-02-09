@@ -239,17 +239,43 @@ function redirectToService(type, id) {
             <h2 class="title-color">Dedicated to Your Health, Committed to Your Care</h2>
           </div>
           <div class="col-lg-8">
-            <p>
-            At Care Compass Hospitals, we are dedicated to guiding you toward better
-            health through compassionate care and innovative medical solutions. With
-            a team of highly skilled professionals and state-of-the-art facilities,
-            we provide comprehensive healthcare services tailored to meet the needs
-            of every patient. Our commitment extends beyond treatment—we prioritize
-            prevention, education, and long-term well-being, ensuring every individual
-            feels supported on their journey to recovery. At Care Compass Hospitals,
-            your health is our mission, and we are here to navigate every step with
-            care, excellence, and trust.
+          <p style="text-align: justify;">
+            <span style="font-size: 24px;"><b>Welcome to Care Compass Hospitals!</b></span>
+      <br />
+      We are a trusted network of hospitals, proudly serving communities across
+      Kandy, Colombo, and Kurunegala. Our mission is simple: to provide you with
+      the highest quality healthcare, backed by compassion and professionalism.
+      <br />
+      At Care Compass, we believe healthcare is more than just treating
+      illnesses. It’s about improving your overall well-being. Our skilled
+      doctors, nurses, and medical staff work together to deliver personalized
+      care that meets your unique needs.
+      <br><br>
+      <span style="font-size: 18px;"><b>Why Choose Us?</b></span>
+      <ul>
+        <li><strong>Experienced Healthcare Professionals:</strong> Our doctors and staff are
+            highly trained, dedicated, and passionate about helping you stay healthy.
+        </li>
+        <li>
+            <strong>Comprehensive Care:</strong> Whether you need treatment, advice, or
+            a routine check-up, we are here to support you every step of the way.
+        </li>
+        <li>
+            <strong>State-of-the-Art Facilities:</strong> We use the latest technology
+            to ensure you receive the best possible care.
+        </li>
+      </ul>
+      <br>
+      <span style="font-size: 20px;"><b>Our Promise to You!</b></span>
+      <br>
+      We’re committed to making healthcare easier and more accessible. From
+      the moment you step into our hospitals or visit our website, you’ll
+      experience a caring and efficient environment where your health comes first.
+      <br>
+      Thank you for choosing Care Compass Hospitals. We’re honored to be part
+      of your health journey. Explore more about how we can serve you today!
             </p>
+
             <img src="images/about/sign.png" alt="" class="img-fluid" />
           </div>
         </div>
