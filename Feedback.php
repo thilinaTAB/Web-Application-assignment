@@ -1,6 +1,6 @@
 <?php
-include_once 'Header.php';
-require_once 'Include/dbh.inc.php'; // Database connection
+    include_once 'Header.php';
+    require_once 'Include/dbh.inc.php';
 ?>
 <section class="section testimonial2">
   <div class="container">
@@ -18,18 +18,17 @@ require_once 'Include/dbh.inc.php'; // Database connection
         <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <?php
-            // Fetch feedback from the database
-            $sql = "SELECT FbName, Topic, FbNote FROM feedback ORDER BY FbID DESC";
-            $result = mysqli_query($conn, $sql);
+                $sql    = "SELECT FbName, Topic, FbNote FROM feedback ORDER BY FbID DESC";
+                $result = mysqli_query($conn, $sql);
 
-            if (!$result) {
-              die("SQL Error: " . mysqli_error($conn)); // Debugging: Display SQL error
-            }
+                if (! $result) {
+                    die("SQL Error: " . mysqli_error($conn));
+                }
 
-            if (mysqli_num_rows($result) > 0) {
-              $active = true; // To mark the first item as active
-              while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">
+                if (mysqli_num_rows($result) > 0) {
+                    $active = true;
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">
                         <div class="testimonial-block">
                           <div class="client-info">
                             <h4>' . htmlspecialchars($row["Topic"]) . '</h4>
@@ -39,13 +38,13 @@ require_once 'Include/dbh.inc.php'; // Database connection
                           <i class="icofont-quote-right"></i>
                         </div>
                       </div>';
-                $active = false; // Only the first item should be active
-              }
-            } else {
-              echo '<div class="carousel-item active"><p>No feedback available yet.</p></div>';
-            }
+                        $active = false;
+                    }
+                } else {
+                    echo '<div class="carousel-item active"><p>No feedback available yet.</p></div>';
+                }
 
-            mysqli_close($conn);
+                mysqli_close($conn);
             ?>
           </div>
         </div>

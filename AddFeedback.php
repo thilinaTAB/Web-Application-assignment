@@ -1,24 +1,24 @@
 <?php
 
-session_start();
+    session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION["userid"])) {
-  echo '<script>
+    // Check if the user is logged in
+    if (! isset($_SESSION["userid"])) {
+        echo '<script>
             alert("Please login to add a Feedback.");
             window.location.href = "Login.php?error=notloggedin";
           </script>';
-    exit();
-}
+        exit();
+    }
 
-include_once 'Header.php';
+    include_once 'Header.php';
 ?>
   <div class="col-12">
   <div class="d-flex justify-content-end position-relative">
                 <?php
-                if (isset($_SESSION["username"])) {
-                  // If the user is logged in, display their name and a dropdown with a logout option
-                  echo '
+                    if (isset($_SESSION["username"])) {
+                        // If the user is logged in, display their name and a dropdown with a logout option
+                        echo '
                   <h3><a
                     class="nav-link dropdown-toggle"
                     href="#"
@@ -34,10 +34,10 @@ include_once 'Header.php';
                       <a class="dropdown-item" href="Logout.php">Logout</a>
                     </li>
                   </ul></h3>';
-                } else {
-                  // If the user is not logged in, display a link to the login page
-                  echo '<a class="nav-link" href="Login.php">Login</a>';
-                }
+                    } else {
+                        // If the user is not logged in, display a link to the login page
+                        echo '<a class="nav-link" href="Login.php">Login</a>';
+                    }
 
                 ?>
                 </div>
@@ -75,26 +75,26 @@ include_once 'Header.php';
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Every Voice Counts – Share Yours Today! 😊</h2>
             <h3 class="mb-4">Thanks For Choosing Us!</h3>
-               <form id="fb-form" class="appoinment-form" method="post" 
+               <form id="fb-form" class="appoinment-form" method="post"
                action="Include/Feedbac.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
                     <div class="col-lg-9">
                             <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" 
+                                <input name="name" id="name" type="text" class="form-control"
                                 placeholder="Your Name" required>
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="FbTitle" id="FbTitle" type="text" class="form-control" 
+                                <input name="FbTitle" id="FbTitle" type="text" class="form-control"
                                 placeholder="Key Topic" required>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-12">
                             <div class="form-groupform-group-2 mb-4">
-                                <textarea name="fbNote" id="fbNote" type="text" class="form-control" 
+                                <textarea name="fbNote" id="fbNote" type="text" class="form-control"
                                 placeholder="Go Ahead" required> </textarea>
                             </div>
                         </div>
@@ -123,6 +123,6 @@ window.onload = function () {
 </script>
 
 
-<?php 
-include_once 'Footer.php';
-?> 
+<?php
+    include_once 'Footer.php';
+?>

@@ -1,5 +1,3 @@
-
-    <!--footer section-->
 <footer class="footer section gray-bg">
       <div class="container">
         <div class="row">
@@ -93,19 +91,19 @@
 
         <div class="footer-btm py-4 mt-5">
   <div class="row">
-    <div class="col-12 text-center"> <!-- Ensures full width and centers content -->
+    <div class="col-12 text-center">
       <p>&copy; 2025 Care Compass Hospital | All Rights Reserved.</p>
     </div>
   </div>
 </div>
 
 
-        
+
         </div>
       </div>
     </footer>
 
-    <!-- 
+    <!--
     Essential Scripts
     =====================================-->
 

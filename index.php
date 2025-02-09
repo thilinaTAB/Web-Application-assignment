@@ -1,5 +1,5 @@
 <?php
-include_once 'Header.php';
+    include_once 'Header.php';
 ?>
 <!-- Search Bar -->
 <div class="col-12">
@@ -15,7 +15,7 @@ include_once 'Header.php';
     var query = document.getElementById("searchQuery").value;
     var searchResults = document.getElementById("searchResults");
 
-    if (query.length < 2) { 
+    if (query.length < 2) {
         searchResults.innerHTML = "";
         searchResults.style.display = "none";
         return;
@@ -31,7 +31,7 @@ include_once 'Header.php';
         }
     };
 
-    xhr.send();   
+    xhr.send();
 }
 
 // Hide search results when clicking outside
@@ -64,10 +64,10 @@ function redirectToService(type, id) {
             Empowering Your Journey to Better Health
           </h1>
           <h4 class="mb-4 pr-4" style="color: darkred;">
-          We are committed to providing compassionate, professional, 
+          We are committed to providing compassionate, professional,
           and reliable health care services to help you achieve a healthier and happier life.
         </h4>
-        
+
 <br><br><br><br>
         </div>
       </div>
@@ -93,11 +93,11 @@ function redirectToService(type, id) {
             <a href="Appointment.php"  target="_blank" class="btn btn-main btn-round-full">
               Make an Appoinment</a>
             </div>
-            
+
             <div class="feature-item mb-5 mb-lg-0">
               <div class="feature-icon mb-4">
                 <i class="icofont-ui-clock"></i>
-              </div>  
+              </div>
               <span>Time schedule</span>
               <h4 class="mb-3">OPD Working Hours</h4>
               <ul class="w-hours list-unstyled">
@@ -216,7 +216,7 @@ function redirectToService(type, id) {
           </div>
         </div>
         </section>
-        
+
 <!-- about section-->
 <section  id="about" class="page-title bg-1">
       <div class="overlay"></div>
@@ -240,14 +240,14 @@ function redirectToService(type, id) {
           </div>
           <div class="col-lg-8">
             <p>
-            At Care Compass Hospitals, we are dedicated to guiding you toward better 
-            health through compassionate care and innovative medical solutions. With 
-            a team of highly skilled professionals and state-of-the-art facilities, 
-            we provide comprehensive healthcare services tailored to meet the needs 
-            of every patient. Our commitment extends beyond treatment—we prioritize 
-            prevention, education, and long-term well-being, ensuring every individual 
-            feels supported on their journey to recovery. At Care Compass Hospitals, 
-            your health is our mission, and we are here to navigate every step with 
+            At Care Compass Hospitals, we are dedicated to guiding you toward better
+            health through compassionate care and innovative medical solutions. With
+            a team of highly skilled professionals and state-of-the-art facilities,
+            we provide comprehensive healthcare services tailored to meet the needs
+            of every patient. Our commitment extends beyond treatment—we prioritize
+            prevention, education, and long-term well-being, ensuring every individual
+            feels supported on their journey to recovery. At Care Compass Hospitals,
+            your health is our mission, and we are here to navigate every step with
             care, excellence, and trust.
             </p>
             <img src="images/about/sign.png" alt="" class="img-fluid" />
@@ -338,7 +338,7 @@ function redirectToService(type, id) {
       </div>
     </div>
 </section>
-    
+
     <?php
-include_once 'Footer.php';
-?>
+    include_once 'Footer.php';
+    ?>

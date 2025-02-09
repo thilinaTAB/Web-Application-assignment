@@ -1,48 +1,46 @@
 <?php
-include_once 'Header.php';
-require 'Include\dbh.inc.php'; // Ensure database connection is included
+    include_once 'Header.php';
+    require 'Include\dbh.inc.php';
 
-$service_name = "";
-$service_description = "";
+    $service_name        = "";
+    $service_description = "";
 
-// Check if type and ID are set in the URL
-if (isset($_GET['type']) && isset($_GET['id'])) {
-    $type = $_GET['type'];
-    $id = intval($_GET['id']); // Ensure ID is an integer
+    // Check if type and ID are set in the URL
+    if (isset($_GET['type']) && isset($_GET['id'])) {
+        $type = $_GET['type'];
+        $id   = intval($_GET['id']); // Ensure ID is an integer
 
-    // Define the appropriate query based on service type
-    if ($type === 'hospital') {
-        $sql = "SELECT service_name AS name, description FROM hospital_services WHERE id = ?";
-    } elseif ($type === 'laboratory') {
-        $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE id = ?";
-    } elseif ($type === 'emergency') {
-        $sql = "SELECT service_name AS name, availability AS description FROM emergency_services WHERE id = ?";
-    } else {
-        echo "<div class='container'><h3>Invalid service type.</h3></div>";
-        include_once 'Footer.php';
-        exit;
+        // Define the appropriate query based on service type
+        if ($type === 'hospital') {
+            $sql = "SELECT service_name AS name, description FROM hospital_services WHERE id = ?";
+        } elseif ($type === 'laboratory') {
+            $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE id = ?";
+        } elseif ($type === 'emergency') {
+            $sql = "SELECT service_name AS name, availability AS description FROM emergency_services WHERE id = ?";
+        } else {
+            echo "<div class='container'><h3>Invalid service type.</h3></div>";
+            include_once 'Footer.php';
+            exit;
+        }
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($row = $result->fetch_assoc()) {
+            $service_name        = htmlspecialchars($row['name']);
+            $service_description = htmlspecialchars($row['description']);
+        } else {
+            echo "<div class='container'><h3>Service not found.</h3></div>";
+            include_once 'Footer.php';
+            exit;
+        }
+
+        $stmt->close();
     }
 
-    // Prepare and execute the statement
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Fetch the result if found
-    if ($row = $result->fetch_assoc()) {
-        $service_name = htmlspecialchars($row['name']);
-        $service_description = htmlspecialchars($row['description']);
-    } else {
-        echo "<div class='container'><h3>Service not found.</h3></div>";
-        include_once 'Footer.php';
-        exit;
-    }
-
-    $stmt->close();
-}
-
-$conn->close();
+    $conn->close();
 ?>
 
 <section class="page-title bg-1">
@@ -76,14 +74,14 @@ $conn->close();
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Child care</h4>
                             <p class="mb-4">
-                              Dedicated to providing specialized medical care for infants, 
-                              children, and adolescents, paediatrics focuses on the physical, 
-                              emotional, and developmental health of young patients. Paediatricians 
-                              diagnose and treat a wide range of childhood illnesses, from common 
-                              infections to more complex health conditions. The service also includes 
-                              regular health check-ups, vaccinations, growth and development 
-                              monitoring, and guidance for parents on nutrition, safety, and mental 
-                              well-being. The goal is to promote healthy growth and prevent illness 
+                              Dedicated to providing specialized medical care for infants,
+                              children, and adolescents, paediatrics focuses on the physical,
+                              emotional, and developmental health of young patients. Paediatricians
+                              diagnose and treat a wide range of childhood illnesses, from common
+                              infections to more complex health conditions. The service also includes
+                              regular health check-ups, vaccinations, growth and development
+                              monitoring, and guidance for parents on nutrition, safety, and mental
+                              well-being. The goal is to promote healthy growth and prevent illness
                               through tailored care for younger populations.
                             </p>
                         </div>
@@ -95,13 +93,13 @@ $conn->close();
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Personal Care</h4>
                             <p class="mb-4">
-                              Offers professional medical advice, diagnosis, 
-                              and treatment for a wide range of common health conditions. 
-                              The service is typically aimed at addressing acute and chronic 
-                              illnesses, as well as providing preventive care. Doctors assess 
-                              symptoms, perform physical exams, and may recommend further tests 
-                              or treatments. This service is often the first point of contact for 
-                              individuals seeking healthcare, ensuring timely interventions for 
+                              Offers professional medical advice, diagnosis,
+                              and treatment for a wide range of common health conditions.
+                              The service is typically aimed at addressing acute and chronic
+                              illnesses, as well as providing preventive care. Doctors assess
+                              symptoms, perform physical exams, and may recommend further tests
+                              or treatments. This service is often the first point of contact for
+                              individuals seeking healthcare, ensuring timely interventions for
                               various health concerns.
                             </p>
                         </div>
@@ -113,14 +111,14 @@ $conn->close();
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Cardiology</h4>
                             <p class="mb-4">
-                            Cardiology focuses on the diagnosis, treatment, and prevention of heart 
-                            diseases and cardiovascular conditions. This specialized service covers 
-                            a wide range of heart-related issues, including coronary artery disease, 
-                            heart failure, arrhythmias, and hypertension. Cardiologists use advanced 
-                            diagnostic tools such as ECGs, echocardiograms, and stress tests to evaluate 
-                            heart function. Treatment may involve lifestyle changes, medications, or 
-                            surgical interventions such as angioplasty or heart surgery. The goal is 
-                            to improve heart health, manage risk factors, and enhance the quality of 
+                            Cardiology focuses on the diagnosis, treatment, and prevention of heart
+                            diseases and cardiovascular conditions. This specialized service covers
+                            a wide range of heart-related issues, including coronary artery disease,
+                            heart failure, arrhythmias, and hypertension. Cardiologists use advanced
+                            diagnostic tools such as ECGs, echocardiograms, and stress tests to evaluate
+                            heart function. Treatment may involve lifestyle changes, medications, or
+                            surgical interventions such as angioplasty or heart surgery. The goal is
+                            to improve heart health, manage risk factors, and enhance the quality of
                             life for patients with cardiovascular concerns.
                             </p>
                         </div>
@@ -152,7 +150,7 @@ $conn->close();
                             <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
                         </div>
                     </div>
-                </div> 
+                </div>
         </div>
     </div>
 </section>
@@ -201,5 +199,5 @@ $conn->close();
 </section>
 
 <?php
-include_once 'Footer.php';
+    include_once 'Footer.php';
 ?>

@@ -6,5 +6,4 @@ echo '<script>
             alert("Log out succussfully");
             window.location.href = "index.php?error=none";
           </script>';
-    exit();
-?>
+exit();

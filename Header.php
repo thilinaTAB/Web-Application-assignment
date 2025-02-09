@@ -1,13 +1,13 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
 
-echo '<div style="position: absolute; top: 10px; right: 10px;">';
+    echo '<div style="position: absolute; top: 10px; right: 10px;">';
 
-if (isset($_SESSION['username'])) {
-    // If the user is logged in, show a dropdown menu
-    echo '<div class="dropdown">
+    if (isset($_SESSION['username'])) {
+        // If the user is logged in, show a dropdown menu
+        echo '<div class="dropdown">
             <h3><a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Hi! ' . htmlspecialchars($_SESSION['username']) . '
             </a></h3>
@@ -15,12 +15,12 @@ if (isset($_SESSION['username'])) {
                 <li><a class="dropdown-item text-white bg-dark" href="Logout.php">Logout</a></li>
             </ul>
           </div>';
-} else {
-    // If not logged in, show the Login link
-    echo '<a href="Login.php" class="nav-link text-white">Login</a>';
-}
+    } else {
+        // If not logged in, show the Login link
+        echo '<a href="Login.php" class="nav-link text-white">Login</a>';
+    }
 
-echo '</div>';
+    echo '</div>';
 ?>
 
 

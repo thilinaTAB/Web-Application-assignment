@@ -1,17 +1,17 @@
 <?php
 
-session_start();
+    session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION["userid"])) {
-    echo '<script>
+    // Check if the user is logged in
+    if (! isset($_SESSION["userid"])) {
+        echo '<script>
             alert("Please login to make an appointment.");
             window.location.href = "Login.php?error=notloggedin";
           </script>';
-    exit();
-}
+        exit();
+    }
 
-include_once 'Header.php';
+    include_once 'Header.php';
 
 ?>
 
@@ -47,58 +47,58 @@ include_once 'Header.php';
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
             <h2 class="mb-2 title-color">Book an appoinment</h2>
             <p class="mb-4">Please provide correct details for offer you a Quality Service </p>
-               <form id="appointment-form" class="appoinment-form" method="post" 
+               <form id="appointment-form" class="appoinment-form" method="post"
                action="Include/Appointment.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
                     <div class="col-lg-9">
                             <div class="form-group">
-                                <input name="name" id="name" type="text" class="form-control" 
+                                <input name="name" id="name" type="text" class="form-control"
                                 placeholder="Your Name" required>
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <input name="age" id="age" type="Number" min="0" class="form-control" 
+                                <input name="age" id="age" type="Number" min="0" class="form-control"
                                 placeholder="Your Age" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="phone" id="phone" type="tel" class="form-control" 
+                                <input name="phone" id="phone" type="tel" class="form-control"
                                 placeholder="Phone Number" required>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="email" id="email" type="Email" class="form-control" 
+                                <input name="email" id="email" type="Email" class="form-control"
                                 placeholder="Email" required>
                             </div>
                         </div>
-                        
+
 
                         <div class="col-lg-10">
     <div class="form-group">
         <select class="form-control" id="doctor" name="doctor" required>
             <option value="">Select Doctor</option>
             <?php
-            // Include the database connection file
-            include_once 'Include/dbh.inc.php';
+                // Include the database connection file
+                include_once 'Include/dbh.inc.php';
 
-            // Query to fetch doctor names and their specializations
-            $sql = "SELECT DoctorName, DocSpec FROM doctors";
-            $result = mysqli_query($conn, $sql);
+                // Query to fetch doctor names and their specializations
+                $sql    = "SELECT DoctorName, DocSpec FROM doctors";
+                $result = mysqli_query($conn, $sql);
 
-            // Check if there are results
-            if (mysqli_num_rows($result) > 0) {
-                // Loop through each row and create an option tag
-                while ($row = mysqli_fetch_assoc($result)) {
-                    // Combine Doctor Name with Specialization
-                    $doctorInfo = "Dr. " . $row['DoctorName'] . " - " . $row['DocSpec'];
-                    echo "<option value='" . $row['DoctorName'] . "'>" . $doctorInfo . "</option>";
+                // Check if there are results
+                if (mysqli_num_rows($result) > 0) {
+                    // Loop through each row and create an option tag
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Combine Doctor Name with Specialization
+                        $doctorInfo = "Dr. " . $row['DoctorName'] . " - " . $row['DocSpec'];
+                        echo "<option value='" . $row['DoctorName'] . "'>" . $doctorInfo . "</option>";
+                    }
+                } else {
+                    echo "<option value=''>No doctors available</option>";
                 }
-            } else {
-                echo "<option value=''>No doctors available</option>";
-            }
             ?>
         </select>
     </div>
@@ -117,10 +117,10 @@ include_once 'Header.php';
 
                          <div class="col-lg-3">
                             <div class="form-group">
-                                <input name="date" id="date" type="Date" class="form-control" 
+                                <input name="date" id="date" type="Date" class="form-control"
                                 placeholder=" Date (dd/mm/yyyy)" required>
                             </div>
-                        </div>               
+                        </div>
 
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -174,13 +174,13 @@ function confirmSubmission() {
      if (confirm(confirmationMessage)) {
         // Show success alert after submission
         alert("Appointment submitted successfully!\nWe will contact you soon for varify your appointment");
-        
+
         // Submit the form
         document.getElementById("appointment-form").submit();
     }
 }
 </script>
 
-<?php 
-include_once 'Footer.php';
-?> 
+<?php
+    include_once 'Footer.php';
+?>
