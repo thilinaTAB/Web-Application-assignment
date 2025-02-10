@@ -59,6 +59,7 @@
 </section>
 <section>
 <div class="block text-center col-lg-12">
+    <br><p>Find our other Services</p>
          <br> <h3>Hospital Services</h3>
           </div>
 </section>
@@ -74,15 +75,12 @@
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Child care</h4>
                             <p class="mb-4">
-                              Dedicated to providing specialized medical care for infants,
-                              children, and adolescents, paediatrics focuses on the physical,
-                              emotional, and developmental health of young patients. Paediatricians
-                              diagnose and treat a wide range of childhood illnesses, from common
-                              infections to more complex health conditions. The service also includes
-                              regular health check-ups, vaccinations, growth and development
-                              monitoring, and guidance for parents on nutrition, safety, and mental
-                              well-being. The goal is to promote healthy growth and prevent illness
-                              through tailored care for younger populations.
+                            Paediatrics provides specialized care for infants, children,
+                            and adolescents, focusing on their physical, emotional, and developmental
+                            health. Paediatricians diagnose and treat various childhood illnesses,
+                            offer vaccinations, monitor growth, and guide parents on nutrition and
+                            well-being. The goal is to ensure healthy development and prevent
+                            illnesses through tailored care.
                             </p>
                         </div>
                     </div>
@@ -111,15 +109,13 @@
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Cardiology</h4>
                             <p class="mb-4">
-                            Cardiology focuses on the diagnosis, treatment, and prevention of heart
-                            diseases and cardiovascular conditions. This specialized service covers
-                            a wide range of heart-related issues, including coronary artery disease,
-                            heart failure, arrhythmias, and hypertension. Cardiologists use advanced
-                            diagnostic tools such as ECGs, echocardiograms, and stress tests to evaluate
-                            heart function. Treatment may involve lifestyle changes, medications, or
-                            surgical interventions such as angioplasty or heart surgery. The goal is
-                            to improve heart health, manage risk factors, and enhance the quality of
-                            life for patients with cardiovascular concerns.
+                            Cardiology specializes in diagnosing, treating, and preventing
+                            heart diseases like coronary artery disease, heart failure, and
+                             arrhythmias. Using advanced tools like ECGs and echocardiograms,
+                             cardiologists assess heart function and recommend treatments,
+                             including lifestyle changes, medications, or surgeries like angioplasty.
+                             The focus is on improving heart health and managing risk factors
+                             for a better quality of life.
                             </p>
                         </div>
                     </div>
@@ -128,8 +124,12 @@
                     <div class="service-block mb-5 mb-lg-0">
                         <img src="images/service/service-4.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Joint replacement</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <h4 class="mt-4 mb-2 title-color">Mental Health & Counselling</h4>
+                            <p class="mb-4">
+                            Offers psychiatric and psychological support for individuals facing stress,
+                            anxiety, depression, or other mental health challenges. Counselling sessions
+                            and therapy programs are designed to promote emotional well-being and recovery.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -137,8 +137,13 @@
                     <div class="service-block mb-5 mb-lg-0">
                         <img src="images/service/service-6.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Examination & Diagnosis</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <h4 class="mt-4 mb-2 title-color">Maternity & Neonatal Care</h4>
+                            <p class="mb-4">
+                                Provides comprehensive care for expecting mothers,
+                                ensuring safe pregnancies, smooth deliveries, and proper postnatal
+                                support. Newborns receive specialized attention, including neonatal
+                                intensive care if needed.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -146,8 +151,13 @@
                     <div class="service-block mb-5 mb-lg-0">
                         <img src="images/service/service-8.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Alzheimer's disease</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <h4 class="mt-4 mb-2 title-color">Surgical Services</h4>
+                            <p class="mb-4">
+                                Covers a wide range of general and specialized
+                                surgeries, from minor procedures to complex operations. Equipped
+                                with modern surgical technology, experienced surgeons and medical
+                                staff ensure safe and effective treatment.
+                            </p>
                         </div>
                     </div>
                 </div>
