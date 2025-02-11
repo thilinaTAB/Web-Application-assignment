@@ -149,14 +149,16 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5 mb-lg-0">
-                        <img src="images/service/service-8.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-3.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">Surgical Services</h4>
+                            <h4 class="mt-4 mb-2 title-color">CT scan</h4>
                             <p class="mb-4">
-                                Covers a wide range of general and specialized
-                                surgeries, from minor procedures to complex operations. Equipped
-                                with modern surgical technology, experienced surgeons and medical
-                                staff ensure safe and effective treatment.
+                            Our CT Scan (Computed Tomography) service provides
+                                high-quality, cross-sectional imaging to assist in diagnosing
+                                various medical conditions. Using advanced technology, our CT
+                                scans help detect abnormalities in the brain, chest, abdomen,
+                                and more. The procedure is quick, painless, and ensures precise
+                                results for better medical evaluation.
                             </p>
                         </div>
                     </div>
@@ -179,10 +181,55 @@
         <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
-                        <img src="images/service/service-3.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-9.jpg" alt="" class="img-fluid" />
                         <div class="content">
-                            <h4 class="mt-4 mb-2 title-color">CT scan</h4>
-                            <p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+                            <h4 class="mt-4 mb-2 title-color">Complete Blood Count (CBC)</h4>
+                            <p class="mb-4">A blood test to evaluate overall health and detect disorders.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-9.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Lipid Profile</h4>
+                            <p class="mb-4">Measures cholesterol and triglyceride levels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-9.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Liver Function Test</h4>
+                            <p class="mb-4">Tests to assess liver health and detect liver diseases.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-9.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Blood Sugar Test</h4>
+                            <p class="mb-4">Determines blood glucose levels for diabetes screening.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-10.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">Urine Analysis</h4>
+                            <p class="mb-4">Examines urine for infections, kidney disease, and other conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="service-block mb-5">
+                        <img src="images/service/service-10.jpg" alt="" class="img-fluid" />
+                        <div class="content">
+                            <h4 class="mt-4 mb-2 title-color">COVID-19 PCR Test</h4>
+                            <p class="mb-4">Detects the presence of SARS-CoV-2 virus.</p>
                         </div>
                     </div>
                 </div>

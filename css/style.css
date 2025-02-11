@@ -327,10 +327,15 @@ a:focus {
 .banner {
   position: relative;
   overflow: hidden;
-  background: #fff;
-  background: url("../images/bg/slider-bg-2.jpg") no-repeat;
+  background: url("../images/bg/slider-bg-2.jpg") no-repeat center center;
   background-size: cover;
   min-height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
 }
 
 .banner .block {
@@ -341,9 +346,7 @@ a:focus {
   font-size: 60px;
   line-height: 1.2;
   letter-spacing: -1.2px;
-
   color: #ffffff;
-  /*color: #223a66;*/
 }
 
 .letter-spacing {
@@ -360,41 +363,44 @@ a:focus {
   background: #e12454;
 }
 
-@media (max-width: 480px) {
-  .banner .block h1 {
-    font-size: 38px;
-    line-height: 50px;
-  }
+/* Adjustments for different screen sizes */
+@media (max-width: 992px) {
   .banner {
     min-height: 450px;
-    background: #fff !important;
+    background-size: contain; /* Prevents excessive cropping */
+  }
+}
+
+@media (max-width: 768px) {
+  .banner .block h1 {
+    font-size: 48px;
+    line-height: 1.2;
+  }
+  .banner {
+    min-height: 400px;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner .block h1 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  .banner {
+    min-height: 350px;
+    background-size: cover;
   }
 }
 
 @media (max-width: 400px) {
   .banner .block h1 {
     font-size: 28px;
-    line-height: 40px;
+    line-height: 1.2;
   }
   .banner {
-    min-height: 450px;
-    background: #fff !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner .block h1 {
-    font-size: 56px;
-    line-height: 70px;
-  }
-  .banner {
-    background: #fff !important;
-  }
-}
-
-@media (max-width: 992px) {
-  .banner {
-    background: #fff !important;
+    min-height: 320px;
+    background-size: cover;
   }
 }
 
@@ -690,7 +696,6 @@ a:focus {
 /*new css codes*/
 .page-title.bg-1 {
   position: relative;
-  background-image: url("images/about-bg.jpg"); /* Set a background image */
   background-size: cover;
   background-position: center;
   padding: 80px 0;
