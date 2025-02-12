@@ -1,135 +1,9 @@
 <?php
-    session_start();
-
-    // Check if the user is logged in as admin
-    if (! isset($_SESSION["admin"]) || $_SESSION["admin"] !== true) {
-        header("location:../Login.php?error=restrictedaccess");
-        exit();
-    }
-
-    // Handle logout
-    if (isset($_GET['logout'])) {
-        session_unset();
-        session_destroy();
-        header("location:../Login.php");
-        exit();
-    }
+    include_once 'Admin.Header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .sidebar {
-            height: auto;
-            background: #343a40;
-            color: #fff;
-            padding: 20px;
-        }
-        .sidebar a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-        .sidebar a:hover {
-            background: #495057;
-        }
-        .sidebar .active {
-            background: #007bff;
-            color: white;
-            font-weight: bold;
-        }
-        .navbar {
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .content {
-            padding: 20px;
-        }
-    </style>
-</head>
-<body>
-
-    <?php
-        include_once '../include/dbh.inc.php'; // Database connection
-
-        // Handle form submission for adding a doctor
-        if (isset($_POST['add_doctor'])) {
-            $doctor_name    = $_POST['doctor_name'];
-            $specialization = $_POST['specialization'];
-
-            $sql  = "INSERT INTO doctors (DoctorName, DocSpec) VALUES (?, ?)";
-            $stmt = mysqli_stmt_init($conn);
-
-            if (mysqli_stmt_prepare($stmt, $sql)) {
-                mysqli_stmt_bind_param($stmt, "ss", $doctor_name, $specialization);
-                mysqli_stmt_execute($stmt);
-            }
-        }
-
-        // Handle deletion of a doctor
-        if (isset($_GET['delete_id'])) {
-            $id = $_GET['delete_id'];
-
-            $sql  = "DELETE FROM doctors WHERE DocID = ?";
-            $stmt = mysqli_stmt_init($conn);
-
-            if (mysqli_stmt_prepare($stmt, $sql)) {
-                mysqli_stmt_bind_param($stmt, "i", $id);
-                mysqli_stmt_execute($stmt);
-            }
-        }
-
-        if (isset($_GET['delete_patient'])) {
-            $patient_id = $_GET['delete_patient'];
-
-            $sql  = "DELETE FROM patients WHERE PatientId = ?";
-            $stmt = mysqli_stmt_init($conn);
-
-            if (mysqli_stmt_prepare($stmt, $sql)) {
-                mysqli_stmt_bind_param($stmt, "i", $patient_id);
-                mysqli_stmt_execute($stmt);
-                header("Location: AdminDash.php"); // Redirect to refresh the page
-                exit();
-            } else {
-                echo "Error preparing statement: " . mysqli_error($conn);
-            }
-        }
-
-        if (isset($_GET['delete_queries'])) {
-            $Q_id = $_GET['delete_queries'];
-
-            $sql  = "DELETE FROM queries WHERE Qid = ?";
-            $stmt = mysqli_stmt_init($conn);
-
-            if (mysqli_stmt_prepare($stmt, $sql)) {
-                mysqli_stmt_bind_param($stmt, "i", $Q_id);
-                mysqli_stmt_execute($stmt);
-                header("Location: AdminDash.php"); // Redirect to refresh the page
-                exit();
-            } else {
-                echo "Error preparing statement: " . mysqli_error($conn);
-            }
-        }
-
-    ?>
-
-    <!-- Top Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light">
+ <!-- Top Navigation Bar -->
+ <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="../Logout.php">
                 <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid" />
@@ -140,8 +14,13 @@
             <a class="navbar-brand" href="#">Admin Dashboard</a>
             </h1>
             <div class="ms-auto">
+                <a href="Staff.Signup.php" class="btn btn-success">
+                Add Staff Member
+                </a>
+            </div>
+            <div class="ms-auto">
                 <a href="?logout=true" class="btn btn-danger">
-                    <i class="fas fa-sign-out-alt"></i> Logout
+                Logout
                 </a>
             </div>
         </div>
@@ -154,17 +33,17 @@
                 <h3 class="text-center mb-4">Menu</h3>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="#doctor-management" class="nav-link                                                                                                                                                                                                                                                                                 <?php echo(strpos($_SERVER['REQUEST_URI'], 'doctor-management') !== false) ? 'active' : ''; ?>">
+                        <a href="#doctor-management" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <?php echo(strpos($_SERVER['REQUEST_URI'], 'doctor-management') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-user-md"></i> Doctor Management
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#patient-information" class="nav-link                                                                                                                                                                                                                                                                                         <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                        <a href="#patient-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-users"></i> Appointments Information
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#Queries-information" class="nav-link                                                                                                                                                                                                                                                                                         <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                        <a href="#Queries-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-users"></i> Queries
                         </a>
                     </li>

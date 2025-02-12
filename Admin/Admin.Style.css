@@ -1,0 +1,32 @@
+body {
+  background-color: #f8f9fa;
+}
+.sidebar {
+  height: auto;
+  background: #343a40;
+  color: #fff;
+  padding: 20px;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.sidebar a:hover {
+  background: #495057;
+}
+.sidebar .active {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.content {
+  padding: 20px;
+}

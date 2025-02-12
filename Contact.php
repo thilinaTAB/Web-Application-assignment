@@ -27,7 +27,6 @@
                     +94 11 59 59 999</a>
                 </div>
             </div>
-
             <div class="col-lg-6 col-sm-6 col-md-6">
                 <div class="contact-block mb-4 mb-lg-0">
                 <a href="mailto:support@cchospitals.lk">
@@ -36,33 +35,40 @@
                     support@cchospitals.lk</a>
                 </div>
             </div>
+</section>
+<br><br><br><br>
+<section class="features">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="feature-block d-lg-flex">
+            <div class="feature-item mb-5 mb-lg-0">
+            <div class="feature-icon mb-4">
+                        <i class="icofont-location-pin"></i>
+                        <h5>Kandy Hospital</h5>
+                        185/B, Peradeniya rd, Kandy
+                    </div>
+                </div>
 
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-location-pin"></i>
-                    <h5>Kandy Hospital</h5>
-                     185/B, Peradeniya rd, Kandy
+                <div class="feature-item mb-5 mb-lg-0">
+                <div class="feature-icon mb-4">
+                        <i class="icofont-location-pin"></i>
+                        <h5>Colombo Hospital</h5>
+                        95/A, 4th Cross Street, Colombo
+                    </div>
+                </div>
+
+                <div class="feature-item mb-5 mb-lg-0">
+                <div class="feature-icon mb-4">
+                        <i class="icofont-location-pin"></i>
+                        <h5>Kurunegala Hospital</h5>
+                        67/1/1, Colombo road, Kurunegala
+                    </div>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-location-pin"></i>
-                    <h5>Colombo Hospital</h5>
-                     185/B, Peradeniya rd, Kandy
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 col-md-6">
-                <div class="contact-block mb-4 mb-lg-0">
-                    <i class="icofont-location-pin"></i>
-                    <h5>Kurunegala Hospital</h5>
-                     185/B, Peradeniya rd, Kandy
-                </div>
-            </div>
-
         </div>
     </div>
+</div>
 </section>
 
 <!-- Quaries-->

@@ -1,30 +1,35 @@
 <?php
-
+//patients sign up
 // Function to check if signup fields are empty
-function emptyInputSignup($username, $email, $userid, $password, $repassword) {
+function emptyInputSignup($username, $email, $userid, $password, $repassword)
+{
     return empty($username) || empty($email) || empty($userid) || empty($password) || empty($repassword);
 }
 
 // Function to validate username (only letters and numbers allowed)
-function invalidUid($userid) {
-    return !preg_match("/^[a-zA-Z0-9]*$/", $userid);
+function invalidUid($userid)
+{
+    return ! preg_match("/^[a-zA-Z0-9]*$/", $userid);
 }
 
 // Function to validate email format
-function invalidEmail($email) {
-    return !filter_var($email, FILTER_VALIDATE_EMAIL);
+function invalidEmail($email)
+{
+    return ! filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 // Function to check if passwords match
-function pwdMatch($password, $repassword) {
+function pwdMatch($password, $repassword)
+{
     return $password !== $repassword;
 }
 
 // Function to check if the user already exists
-function uidExists($conn, $userid, $email) {
-    $sql = "SELECT * FROM Users WHERE Uuserid = ? OR Uemail = ?;";
+function uidExists($conn, $userid, $email)
+{
+    $sql  = "SELECT * FROM users WHERE Uuserid = ? OR Uemail = ?;";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
         header("location:../Signup.php?error=stmtfailed");
         exit();
     }
@@ -42,10 +47,11 @@ function uidExists($conn, $userid, $email) {
 }
 
 // Function to create a new user
-function createNewUser($conn, $username, $email, $userid, $password) {
-    $sql = "INSERT INTO users (Uname, Uemail, Uuserid, Upassword) VALUES (?, ?, ?, ?);";
+function createNewUser($conn, $username, $email, $userid, $password)
+{
+    $sql  = "INSERT INTO users (Uname, Uemail, Uuserid, Upassword) VALUES (?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
         header("location:../Signup.php?error=stmtfailed");
         exit();
     }
@@ -59,15 +65,17 @@ function createNewUser($conn, $username, $email, $userid, $password) {
 }
 
 // Function to check if login fields are empty
-function emptyInputLogin($username, $password) {
+function emptyInputLogin($username, $password)
+{
     return empty($username) || empty($password);
 }
 
 // Function to log in a user
-function loginUser($conn, $username, $password) {
-    $sql = "SELECT * FROM users WHERE Uuserid = ? OR Uemail = ?;";
+function loginUser($conn, $username, $password)
+{
+    $sql  = "SELECT * FROM users WHERE Uuserid = ? OR Uemail = ?;";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
         echo '<script>
         alert("Account Created Successfully. Please Login");
         window.location.href = "../Login.php?error=notloggedin";
@@ -87,7 +95,7 @@ function loginUser($conn, $username, $password) {
           </script>';
         } else {
             session_start();
-            $_SESSION["userid"] = $row["Uuserid"];
+            $_SESSION["userid"]   = $row["Uuserid"];
             $_SESSION["username"] = $row["Uname"];
             header("location:../index.php");
             exit();
@@ -97,14 +105,15 @@ function loginUser($conn, $username, $password) {
             alert("Please check your username and password.");
             window.location.href = "../Login.php?error=notloggedin";
           </script>';
-    exit();
+        exit();
     }
 }
 
 /*APPOINTMENT DATA*/
-function emptyInputs($patiantName, $patiantAge, $patiantPhone, $patiantEmail, $DocName, $AppBranch, $patiantDate) {
+function emptyInputs($patiantName, $patiantAge, $patiantPhone, $patiantEmail, $DocName, $AppBranch, $patiantDate)
+{
     $result;
-    if (empty($patiantName) || empty($patiantAge) || empty($patiantPhone) || empty($patiantEmail) || 
+    if (empty($patiantName) || empty($patiantAge) || empty($patiantPhone) || empty($patiantEmail) ||
         empty($DocName) || empty($AppBranch) || empty($patiantDate)) {
         $result = true;
     } else {
@@ -113,11 +122,12 @@ function emptyInputs($patiantName, $patiantAge, $patiantPhone, $patiantEmail, $D
     return $result;
 }
 
-function createUser($conn, $patiantName, $patiantAge, $patiantPhone, $patiantEmail, $DocName, $AppBranch, $patiantDate) {
-    $sql = "INSERT INTO patients (PatientName, PatientAge, PatientPhone, PatientEmail, DoctorName, AppBranch, AppDate) 
+function createUser($conn, $patiantName, $patiantAge, $patiantPhone, $patiantEmail, $DocName, $AppBranch, $patiantDate)
+{
+    $sql = "INSERT INTO patients (PatientName, PatientAge, PatientPhone, PatientEmail, DoctorName, AppBranch, AppDate)
             VALUES (?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
         header("location:../Appointment.php?error=stmtfailed");
         exit();
     }
@@ -128,3 +138,68 @@ function createUser($conn, $patiantName, $patiantAge, $patiantPhone, $patiantEma
     exit();
 }
 
+//Staff sign up
+// Function to check if signup fields are empty
+function emptyStaffSignup($sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $sPassword, $sRepassword)
+{
+    return empty($sName) || empty($sNIC) || empty($sContact) || empty($staffId) || empty($staffMail)
+    || empty($sRole) || empty($sPassword) || empty($sRepassword);
+}
+
+// Function to validate username (only letters and numbers allowed)
+function invalidSid($staffId)
+{
+    return ! preg_match("/^[a-zA-Z0-9]*$/", $staffId);
+}
+
+// Function to validate email format
+function invalidsMmail($staffMail)
+{
+    return ! filter_var($staffMail, FILTER_VALIDATE_EMAIL);
+}
+
+// Function to check if passwords match
+function spwdMatch($sPassword, $sRepassword)
+{
+    return $sPassword !== $sRepassword;
+}
+
+// Function to check if the user already exists
+function sidExists($conn, $staffId, $staffMail)
+{
+    $sql  = "SELECT * FROM staff WHERE staffId = ? OR staffMail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        header("location:../Admin\Staff.Signup.php?error=stmtfailed1");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $staffId, $staffMail);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+
+    $resultCheck = mysqli_stmt_num_rows($stmt);
+    if ($resultCheck > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Function to create a new user
+function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $sPassword)
+{
+    $sql  = "INSERT INTO staff (sName, sNIC, sContact, staffId, sRole, staffMail, sPassword) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        header("location:../Admin\Staff.Signup.php?error=stmtfailed2");
+        exit();
+    }
+
+    $hashedsPwd = password_hash($sPassword, PASSWORD_DEFAULT);
+    mysqli_stmt_bind_param($stmt, "ssissss", $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $hashedsPwd);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location:../Admin\AdminDash.php?error=none");
+    exit();
+}
