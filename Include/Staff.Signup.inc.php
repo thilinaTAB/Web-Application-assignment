@@ -29,12 +29,12 @@ if (isset($_POST["submit"])) {
         exit();
     }
     if (sidExists($conn, $staffId, $staffMail) !== false) {
-        header("location:../Admin\Staff.Signup.php?error=userexists");
+        header("location:../Admin\Staff.Signup.php?error=Staffuserexists");
         exit();
     }
 
     createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $sPassword);
 } else {
-    header("location:../Admin\AdminDash.php");
+    header("location:../Admin\StaffDash.php");
     exit();
 }

@@ -2,12 +2,6 @@
 <?php
     session_start();
 
-    // Check if the user is logged in as admin
-    if (! isset($_SESSION["admin"]) || $_SESSION["admin"] !== true) {
-        header("location:../Login.php?error=restrictedaccess");
-        exit();
-    }
-
     // Handle logout
     if (isset($_GET['logout'])) {
         session_unset();
@@ -50,19 +44,33 @@
             }
         }
 
-        // Handle deletion of a doctor
+        // Handle deletion of doctors
         if (isset($_GET['delete_id'])) {
-            $id = $_GET['delete_id'];
+            $doctor_id = $_GET['delete_id'];
 
             $sql  = "DELETE FROM doctors WHERE DocID = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
-                mysqli_stmt_bind_param($stmt, "i", $id);
+                mysqli_stmt_bind_param($stmt, "i", $doctor_id);
                 mysqli_stmt_execute($stmt);
             }
         }
 
+        // Handle deletion of staff
+        if (isset($_GET['delete_staff'])) {
+            $staff_id = $_GET['delete_staff'];
+
+            $sql  = "DELETE FROM staff WHERE sId = ?";
+            $stmt = mysqli_stmt_init($conn);
+
+            if (mysqli_stmt_prepare($stmt, $sql)) {
+                mysqli_stmt_bind_param($stmt, "i", $staff_id);
+                mysqli_stmt_execute($stmt);
+            }
+        }
+
+        // Handle deletion of Appointments
         if (isset($_GET['delete_patient'])) {
             $patient_id = $_GET['delete_patient'];
 

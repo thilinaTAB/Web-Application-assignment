@@ -77,7 +77,7 @@
                   </div>
                 </div>
                 <div class="col-12">
-                  <p class="m-0 text-secondary text-center"><a href="AdminDash.php"
+                  <p class="m-0 text-secondary text-center"><a href="StaffList.php"
                   class="link-primary text-decoration-none">Go Back to Dashboard</a></p>
                 </div>
               </div>

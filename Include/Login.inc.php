@@ -11,15 +11,20 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    // Check if the login is for the admin account
+    // Admin Login
     if ($username === "CCHAdmin" && $password === "CCHpw") {
-        // Redirect to the admin dashboard
         session_start();
         $_SESSION["admin"] = true;
         header("location:../Admin/AdminDash.php");
         exit();
+    }
+
+    // Staff Login
+    if (isStaff($conn, $username)) {
+        session_start();
+        $_SESSION["staff"] = true; // Set staff session
+        loginStaff($conn, $username, $password);
     } else {
-        // Regular user login
         loginUser($conn, $username, $password);
     }
 } else {

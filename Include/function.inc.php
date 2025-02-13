@@ -60,7 +60,10 @@ function createNewUser($conn, $username, $email, $userid, $password)
     mysqli_stmt_bind_param($stmt, "ssss", $username, $email, $userid, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location:../Login.php?error=none");
+    echo '<script>
+    alert("Account Created Successfully. Please Login");
+    window.location.href = "../Login.php?error=notloggedin";
+  </script>';
     exit();
 }
 
@@ -77,9 +80,10 @@ function loginUser($conn, $username, $password)
     $stmt = mysqli_stmt_init($conn);
     if (! mysqli_stmt_prepare($stmt, $sql)) {
         echo '<script>
-        alert("Account Created Successfully. Please Login");
-        window.location.href = "../Login.php?error=notloggedin";
-      </script>';
+        alert("Database error. Please try again.");
+        window.location.href = "../Login.php?error=dberror";
+        </script>';
+        exit();
     }
 
     mysqli_stmt_bind_param($stmt, "ss", $username, $username);
@@ -87,12 +91,12 @@ function loginUser($conn, $username, $password)
     $result = mysqli_stmt_get_result($stmt);
 
     if ($row = mysqli_fetch_assoc($result)) {
-        $pwdCheck = password_verify($password, $row['Upassword']);
-        if ($pwdCheck === false) {
+        if (! password_verify($password, $row['Upassword'])) {
             echo '<script>
-            alert("Please check your password.");
+            alert("Incorrect password. Please try again.");
             window.location.href = "../Login.php?error=notloggedin";
-          </script>';
+            </script>';
+            exit();
         } else {
             session_start();
             $_SESSION["userid"]   = $row["Uuserid"];
@@ -102,14 +106,14 @@ function loginUser($conn, $username, $password)
         }
     } else {
         echo '<script>
-            alert("Please check your username and password.");
+            alert("User not found. Please check your username or email.");
             window.location.href = "../Login.php?error=notloggedin";
           </script>';
         exit();
     }
 }
 
-/*APPOINTMENT DATA*/
+//APPOINTMENT DATA
 function emptyInputs($patiantName, $patiantAge, $patiantPhone, $patiantEmail, $DocName, $AppBranch, $patiantDate)
 {
     $result;
@@ -186,7 +190,7 @@ function sidExists($conn, $staffId, $staffMail)
     }
 }
 
-// Function to create a new user
+// Function to create a new Staff
 function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $sPassword)
 {
     $sql  = "INSERT INTO staff (sName, sNIC, sContact, staffId, sRole, staffMail, sPassword) VALUES (?, ?, ?, ?, ?, ?, ?);";
@@ -200,6 +204,73 @@ function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $
     mysqli_stmt_bind_param($stmt, "ssissss", $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $hashedsPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location:../Admin\AdminDash.php?error=none");
+    echo '<script>
+    alert("Account Created Successfully. Please Login");
+    window.location.href = "../Admin\StaffDash.php?error=none";
+  </script>';
     exit();
+}
+
+//STAFF LOGIN
+
+// Function to check if login fields are empty
+function emptyInputsLogin($staffId, $sPassword)
+{
+    return empty($staffId) || empty($sPassword);
+}
+
+// Function to log in staff
+function isStaff($conn, $username)
+{
+    $sql  = "SELECT * FROM staff WHERE staffId = ? OR staffMail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        return false;
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    return mysqli_fetch_assoc($result) ? true : false;
+}
+
+function loginStaff($conn, $staffId, $sPassword)
+{
+    $sql  = "SELECT * FROM staff WHERE staffId = ? OR staffMail = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        echo '<script>
+        alert("Database error. Please try again.");
+        window.location.href = "../Login.php?error=dberror";
+        </script>';
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $staffId, $staffId);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        if (! password_verify($sPassword, $row['sPassword'])) {
+            echo '<script>
+            alert("Incorrect staff password. Please try again.");
+            window.location.href = "../Login.php?error=staffnotloggedin";
+            </script>';
+            exit();
+        } else {
+            session_start();
+            $_SESSION["staff"]     = true;
+            $_SESSION["staffid"]   = $row["staffId"];
+            $_SESSION["staffname"] = $row["sName"];
+            header("location:../Admin\StaffDash.php");
+            exit();
+        }
+    } else {
+        echo '<script>
+            alert("Staff account not found. Please check your username or email.");
+            window.location.href = "../Login.php?error=staffnotloggedin";
+          </script>';
+        exit();
+    }
 }

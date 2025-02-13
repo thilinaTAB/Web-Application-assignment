@@ -1,9 +1,9 @@
 <?php
 if (isset($_POST["submit"])) {
-    $username = $_POST["uname"];
-    $email = $_POST["email"];
-    $userid = $_POST["userid"];
-    $password = $_POST["password"];
+    $username   = $_POST["uname"];
+    $email      = $_POST["email"];
+    $userid     = $_POST["userid"];
+    $password   = $_POST["password"];
     $repassword = $_POST["repassword"];
 
     require_once 'dbh.inc.php';
@@ -26,7 +26,10 @@ if (isset($_POST["submit"])) {
         exit();
     }
     if (uidExists($conn, $userid, $email) !== false) {
-        header("location:../Signup.php?error=userexists");
+        echo '<script>
+            alert("Username or Email already exist.");
+            window.location.href = "../signup.php?error=userexist";
+          </script>';
         exit();
     }
 
