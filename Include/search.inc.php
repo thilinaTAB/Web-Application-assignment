@@ -9,7 +9,7 @@ if (isset($_GET['query'])) {
     $sql = "
         SELECT id, service_name AS name, 'hospital' AS type FROM hospital_services WHERE service_name LIKE ?
         UNION
-        SELECT id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
+        SELECT serv_id AS id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
     ";
 
     // Prepare the SQL statement

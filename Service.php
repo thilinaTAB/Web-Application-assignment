@@ -12,18 +12,24 @@
 
         // Define the appropriate query based on service type
         if ($type === 'hospital') {
+            // Use 'id' for hospital_services
             $sql = "SELECT service_name AS name, description FROM hospital_services WHERE id = ?";
         } elseif ($type === 'laboratory') {
-            $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE id = ?";
-        } elseif ($type === 'emergency') {
-            $sql = "SELECT service_name AS name, availability AS description FROM emergency_services WHERE id = ?";
+            // Use 'serv_id' for laboratory_services
+            $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE serv_id = ?";
         } else {
             echo "<div class='container'><h3>Invalid service type.</h3></div>";
             include_once 'Footer.php';
             exit;
         }
 
+        // Prepare the SQL statement
         $stmt = $conn->prepare($sql);
+        if ($stmt === false) {
+            die('SQL Error: ' . $conn->error); // Output the error if query preparation fails
+        }
+
+        // Bind parameters and execute
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -38,10 +44,16 @@
         }
 
         $stmt->close();
+    } else {
+        echo "<div class='container'><h3>Missing parameters.</h3></div>";
+        include_once 'Footer.php';
+        exit;
     }
 
     $conn->close();
 ?>
+
+
 
 <section class="page-title bg-1">
     <div class="overlay"></div>
