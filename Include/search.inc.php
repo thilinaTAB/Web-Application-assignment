@@ -20,7 +20,7 @@ if (isset($_GET['query'])) {
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             echo "<div><a href='service.php?type=" . htmlspecialchars($row['type']) . "&id=" . intval($row['id']) . "'>" .
-                 "<strong>" . htmlspecialchars($row['name']) . "</strong></a></div>";
+            "<strong>" . htmlspecialchars($row['name']) . "</strong></a></div>";
         }
     } else {
         echo "<div>No results found.</div>";
@@ -29,4 +29,3 @@ if (isset($_GET['query'])) {
     $stmt->close();
     $conn->close();
 }
-?>
