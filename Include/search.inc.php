@@ -1,6 +1,8 @@
 <?php
 require 'dbh.inc.php'; // Ensure correct DB connection
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Enable error reporting for MySQL
+
 if (isset($_GET['query'])) {
     $query = "%" . $_GET['query'] . "%"; // Prepare for LIKE search
 
@@ -8,12 +10,15 @@ if (isset($_GET['query'])) {
         SELECT id, service_name AS name, 'hospital' AS type FROM hospital_services WHERE service_name LIKE ?
         UNION
         SELECT id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
-        UNION
-        SELECT id, service_name AS name, 'emergency' AS type FROM emergency_services WHERE service_name LIKE ?
     ";
 
+    // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $query, $query, $query);
+    if (! $stmt) {
+        die('SQL error: ' . $conn->error); // Shows the error if the query preparation fails
+    }
+
+    $stmt->bind_param("ss", $query, $query);
     $stmt->execute();
     $result = $stmt->get_result();
 
