@@ -1,11 +1,11 @@
 <?php
-$serverName="localhost";
-$dbUserName="cchAdmin";
-$dbPassword="Ec7lDe[nyD6da8CJ";
-$dbName="cch_db";
+$serverName = "localhost";
+$dbUserName = "cchAdmin";
+$dbPassword = "DO4KAHUyd*UsO(nh";
+$dbName     = "cch_hospitals_db";
 
-$conn = mysqli_connect($serverName,$dbUserName,$dbPassword,$dbName);
+$conn = mysqli_connect($serverName, $dbUserName, $dbPassword, $dbName);
 
-if(!$conn){
-    die("connection failed : " .mysqli_connct_error());
+if (! $conn) {
+    die("connection failed : " . mysqli_connct_error());
 }

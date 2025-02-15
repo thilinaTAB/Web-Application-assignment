@@ -1,42 +1,42 @@
 <?php
 
 // Function to check for empty fields
-function emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody) {
-    if (empty($Qname) || empty($Qemail) || empty($Qphone) || empty($QTitle) || empty($Qbody)) {
-        return true;
-    } else {
-        return false;
-    }
+function emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody)
+{
+    return empty($Qname) || empty($Qemail) || empty($Qphone) || empty($QTitle) || empty($Qbody);
 }
 
-// Function to insert feedback into the database
-function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody) {
-    $sql = "INSERT INTO queries (Qname, Qemail, Qphone, Qtitle, Qbody ) VALUES (?,?,?,?,?)";
+// Function to insert query into the database
+function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody)
+{
+    $sql  = "INSERT INTO queries (query_user, query_email, query_phone, query_title, query_body) VALUES (?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
 
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        die("SQL statement failed: " . mysqli_error($conn)); // Show error if statement fails
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        die("SQL preparation failed: " . mysqli_error($conn));
     }
 
     mysqli_stmt_bind_param($stmt, "ssiss", $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
-    mysqli_stmt_execute($stmt);
+
+    if (! mysqli_stmt_execute($stmt)) {
+        die("SQL execution failed: " . mysqli_error($conn));
+    }
+
     mysqli_stmt_close($stmt);
 
-    // Redirect back to feedback page with success message
+    // Redirect with success message
     header("location: ../Contact.php?success=queriessubmitted");
     exit();
 }
 
-// Check if form was submitted
 if (isset($_POST["submit"])) {
     require_once 'dbh.inc.php'; // Ensure database connection file is included
 
-    $Qname = $_POST["Qname"];
+    $Qname  = $_POST["Qname"];
     $Qemail = $_POST["Qemail"];
     $Qphone = $_POST["Qphone"];
     $QTitle = $_POST["Qtitle"];
-    $Qbody = $_POST["Qbody"];
-
+    $Qbody  = $_POST["Qbody"];
 
     // Check for empty fields
     if (emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody)) {
@@ -44,10 +44,9 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    // Call function to submit Query
+    // Call function to submit query
     submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
 } else {
     header("location: ../Contact.php");
     exit();
 }
-?>

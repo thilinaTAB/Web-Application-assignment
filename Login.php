@@ -1,5 +1,11 @@
 <?php
     include_once 'Header.php';
+    $errorMessage = "";
+
+    if (isset($_GET["error"])) {
+        $errorMessage = "Please Login.";
+    }
+
 ?>
 
 <section class="bg-light py-3 py-md-5">
@@ -9,11 +15,16 @@
         <div class="card border border-light-subtle rounded-3 shadow-sm">
           <div class="card-body p-3 p-md-4 p-xl-5">
             <div class="text-center mb-3">
-              <a href="#!">
+              <a href="index.php">
                 <img src="images/CCH_LOGO.png" alt="Logo" width="auto" height="auto">
               </a>
             </div>
             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Login to your account</h2>
+
+            <?php if (! empty($errorMessage)): ?>
+                <div class="alert alert-primary text-center"><?php echo $errorMessage; ?></div>
+            <?php endif; ?>
+
             <form action="Include/Login.inc.php" method="post">
               <div class="row gy-2 overflow-hidden">
                 <div class="col-12">
@@ -46,5 +57,5 @@
 </section>
 
 <?php
-include_once 'Footer.php';
+    include_once 'Footer.php';
 ?>

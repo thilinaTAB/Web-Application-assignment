@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     // Check if the user is logged in
@@ -12,7 +11,6 @@
     }
 
     include_once 'Header.php';
-
 ?>
 
 <section class="page-title bg-1">
@@ -45,12 +43,12 @@
 
       <div class="col-lg-8">
            <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
-            <h2 class="mb-2 title-color">Book an appoinment</h2>
-            <p class="mb-4">Please provide correct details for offer you a Quality Service </p>
+            <h2 class="mb-2 title-color">Book an appointment</h2>
+            <p class="mb-4">Please provide correct details so we can offer you Quality Service.</p>
                <form id="appointment-form" class="appoinment-form" method="post"
                action="Include/Appointment.inc.php" onsubmit="return confirmSubmission();">
                     <div class="row">
-                    <div class="col-lg-9">
+                        <div class="col-lg-9">
                             <div class="form-group">
                                 <input name="name" id="name" type="text" class="form-control"
                                 placeholder="Your Name" required>
@@ -58,7 +56,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
-                                <input name="age" id="age" type="Number" min="0" class="form-control"
+                                <input name="age" id="age" type="number" min="0" class="form-control"
                                 placeholder="Your Age" required>
                             </div>
                         </div>
@@ -70,39 +68,38 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <input name="email" id="email" type="Email" class="form-control"
+                                <input name="email" id="email" type="email" class="form-control"
                                 placeholder="Email" required>
                             </div>
                         </div>
 
-
                         <div class="col-lg-10">
-    <div class="form-group">
-        <select class="form-control" id="doctor" name="doctor" required>
-            <option value="">Select Doctor</option>
-            <?php
-                // Include the database connection file
-                include_once 'Include/dbh.inc.php';
+                            <div class="form-group">
+                                <select class="form-control" id="doctor" name="doctor" required>
+                                    <option value="">Select Doctor</option>
+                                    <?php
+                                        // Include the database connection file (now pointing to cch_hospitals)
+                                        include_once 'Include/dbh.inc.php';
 
-                // Query to fetch doctor names and their specializations
-                $sql    = "SELECT DoctorName, DocSpec FROM doctors";
-                $result = mysqli_query($conn, $sql);
+                                        // Query to fetch doctors with their id, name, and specialty
+                                        $sql    = "SELECT doctor_id, doctor_name, doctor_specialty FROM doctors";
+                                        $result = mysqli_query($conn, $sql);
 
-                // Check if there are results
-                if (mysqli_num_rows($result) > 0) {
-                    // Loop through each row and create an option tag
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        // Combine Doctor Name with Specialization
-                        $doctorInfo = "Dr. " . $row['DoctorName'] . " - " . $row['DocSpec'];
-                        echo "<option value='" . $row['DoctorName'] . "'>" . $doctorInfo . "</option>";
-                    }
-                } else {
-                    echo "<option value=''>No doctors available</option>";
-                }
-            ?>
-        </select>
-    </div>
-</div>
+                                        // Check if there are results
+                                        if (mysqli_num_rows($result) > 0) {
+                                            // Loop through each row and create an option tag
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                // Combine doctor name with specialty
+                                                $doctorInfo = "Dr. " . $row['doctor_name'] . " - " . $row['doctor_specialty'];
+                                                echo "<option value='" . $row['doctor_id'] . "'>" . $doctorInfo . "</option>";
+                                            }
+                                        } else {
+                                            echo "<option value=''>No doctors available</option>";
+                                        }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="col-lg-3">
                             <div class="form-group">
@@ -115,13 +112,15 @@
                             </div>
                         </div>
 
-                         <div class="col-lg-3">
+                        <div class="col-lg-3">
                             <div class="form-group">
-                                <input name="date" id="date" type="Date" class="form-control"
-                                placeholder=" Date (dd/mm/yyyy)" required>
+                                <input name="date" id="date" type="date" class="form-control"
+                                placeholder="Date (dd/mm/yyyy)" required>
                             </div>
                         </div>
 
+                        <!-- The appointment time field is kept in the form for now,
+                             but note it is not used in the new database schema -->
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <select class="form-control" id="time" name="Apptime" required>
@@ -129,7 +128,7 @@
                                   <option>Morning Session (8.00-10.00)</option>
                                   <option>Evening Session (16.00-18.00)</option>
                                   <option>Night Session (21.00-23.00)</option>
-                                  </select>
+                                </select>
                             </div>
                         </div>
 
@@ -152,7 +151,8 @@ function confirmSubmission() {
     const age = document.getElementById("age").value;
     const phone = document.getElementById("phone").value;
     const email = document.getElementById("email").value;
-    const doctor = document.getElementById("doctor").value;
+    const doctorSelect = document.getElementById("doctor");
+    const doctorName = doctorSelect.options[doctorSelect.selectedIndex].text;
     const branch = document.getElementById("branch").value;
     const date = document.getElementById("date").value;
     const time = document.getElementById("time").value;
@@ -164,19 +164,19 @@ function confirmSubmission() {
         Age: ${age}
         Phone: ${phone}
         Email: ${email}
-        Doctor: ${doctor}
+        Doctor ID: ${doctor}
         Branch: ${branch}
         Date: ${date}
         Time: ${time}
     `;
 
-     // Show confirmation dialog
-     if (confirm(confirmationMessage)) {
+    // Show confirmation dialog
+    if (confirm(confirmationMessage)) {
         // Show success alert after submission
-        alert("Appointment submitted successfully!\nWe will contact you soon for varify your appointment");
-
+        alert("Appointment submitted successfully!\nWe will contact you soon to verify your appointment");
         // Submit the form
         document.getElementById("appointment-form").submit();
+        window.close();
     }
 }
 </script>

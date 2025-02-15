@@ -20,11 +20,11 @@
 
 <!-- Search Form -->
 <div class="d-flex justify-content-end position-relative">
-<form method="GET" class="form-inline" style="text-align: right; margin-bottom: 20px;">
-    <input type="text" name="search" class="form-control" placeholder="Search Doctor Name"
-    value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="width: 250px;">
-    <button type="submit" class="btn btn-secondary">Search</button>
-</form>
+    <form method="GET" class="form-inline" style="text-align: right; margin-bottom: 20px;">
+        <input type="text" name="search" class="form-control" placeholder="Search Doctor Name"
+            value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" style="width: 250px;">
+        <button type="submit" class="btn btn-secondary">Search</button>
+    </form>
 </div>
 
 <!-- Doctors Table -->
@@ -40,15 +40,15 @@
             // Check if search parameter is set
             $search = isset($_GET['search']) ? $_GET['search'] : '';
 
-            // SQL query with search functionality
-            $sql    = "SELECT * FROM doctors WHERE DoctorName LIKE '%$search%' ORDER BY DoctorName ASC";
+            // SQL query with search functionality using new column names
+            $sql    = "SELECT * FROM doctors WHERE doctor_name LIKE '%$search%' ORDER BY doctor_name ASC";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    echo "<td><ul><li>" . $row['DoctorName'] . "</li></ul></td>";
-                    echo "<td>" . $row['DocSpec'] . "</td>";
+                    echo "<td><ul><li>" . $row['doctor_name'] . "</li></ul></td>";
+                    echo "<td>" . $row['doctor_specialty'] . "</td>";
                     echo "</tr>";
                 }
             } else {

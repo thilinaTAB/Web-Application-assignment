@@ -35,7 +35,7 @@
             $doctor_name    = $_POST['doctor_name'];
             $specialization = $_POST['specialization'];
 
-            $sql  = "INSERT INTO doctors (DoctorName, DocSpec) VALUES (?, ?)";
+            $sql  = "INSERT INTO doctors (doctor_name, doctor_specialty) VALUES (?, ?)";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -48,7 +48,7 @@
         if (isset($_GET['delete_id'])) {
             $doctor_id = $_GET['delete_id'];
 
-            $sql  = "DELETE FROM doctors WHERE DocID = ?";
+            $sql  = "DELETE FROM doctors WHERE doctor_id = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -61,7 +61,7 @@
         if (isset($_GET['delete_staff'])) {
             $staff_id = $_GET['delete_staff'];
 
-            $sql  = "DELETE FROM staff WHERE sId = ?";
+            $sql  = "DELETE FROM staff WHERE staff_id = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -74,7 +74,7 @@
         if (isset($_GET['delete_patient'])) {
             $patient_id = $_GET['delete_patient'];
 
-            $sql  = "DELETE FROM patients WHERE PatientId = ?";
+            $sql  = "DELETE FROM patients WHERE Patient_id = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {
@@ -87,10 +87,11 @@
             }
         }
 
+        // Handle deletion of query
         if (isset($_GET['delete_queries'])) {
             $Q_id = $_GET['delete_queries'];
 
-            $sql  = "DELETE FROM queries WHERE Qid = ?";
+            $sql  = "DELETE FROM queries WHERE query_id = ?";
             $stmt = mysqli_stmt_init($conn);
 
             if (mysqli_stmt_prepare($stmt, $sql)) {

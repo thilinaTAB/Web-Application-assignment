@@ -151,7 +151,7 @@ window.onclick = function(event) {
                     <a class="dropdown-item" href="doctorTab.php">Available Doctors Today!</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href="Appointment.php">Make an Appointment</a>
+                    <a class="dropdown-item" target="_blank" href="Appointment.php">Make an Appointment</a>
                   </li>
                 </ul>
               </li>

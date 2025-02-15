@@ -11,15 +11,28 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    // Admin Login
-    if ($username === "CCHAdmin" && $password === "CCHpw") {
-        session_start();
-        $_SESSION["admin"] = true;
-        header("location:../Admin/AdminDash.php");
-        exit();
+    // Check Admin Login from Database
+    $sql  = "SELECT * FROM admin WHERE username = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        // Verify hashed password
+        if (password_verify($password, $row["password"])) {
+            session_start();
+            $_SESSION["admin"]          = true;
+            $_SESSION["admin_username"] = $row["username"];
+            header("location:../Admin/AdminDash.php");
+            exit();
+        } else {
+            header("location:../Login.php?error=wrongpassword");
+            exit();
+        }
     }
 
-    // Staff Login
+    // Check Staff or User Login
     if (isStaff($conn, $username)) {
         session_start();
         $_SESSION["staff"] = true; // Set staff session
@@ -27,6 +40,8 @@ if (isset($_POST["submit"])) {
     } else {
         loginUser($conn, $username, $password);
     }
+
+    mysqli_stmt_close($stmt);
 } else {
     header("location:../Login.php");
     exit();

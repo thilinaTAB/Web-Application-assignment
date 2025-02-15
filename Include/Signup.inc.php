@@ -27,8 +27,8 @@ if (isset($_POST["submit"])) {
     }
     if (uidExists($conn, $userid, $email) !== false) {
         echo '<script>
-            alert("Username or Email already exist.");
-            window.location.href = "../signup.php?error=userexist";
+            alert("Username or Email already exists.");
+            window.location.href = "../Signup.php?error=userexist";
           </script>';
         exit();
     }

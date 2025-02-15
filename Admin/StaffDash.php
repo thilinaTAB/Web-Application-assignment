@@ -34,18 +34,18 @@
                 <h3 class="text-center mb-4">Menu</h3>
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a href="#doctor-management" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <?php echo(strpos($_SERVER['REQUEST_URI'], 'doctor-management') !== false) ? 'active' : ''; ?>">
+                        <a href="#doctor-management" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <?php echo(strpos($_SERVER['REQUEST_URI'], 'doctor-management') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-user-md"></i> Doctor Informations
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#patient-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                        <a href="#patient-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
                             <i class="fas fa-users"></i> Appointments Information
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#Queries-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
-                            <i class="fas fa-users"></i> Patient Reports
+                        <a href="#Queries-information" class="nav-link                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                            <i class="fas fa-users"></i> Queries-information
                         </a>
                     </li>
                 </ul>
@@ -66,14 +66,14 @@
                     </thead>
                     <tbody>
                         <?php
-                            $sql    = "SELECT * FROM doctors ORDER BY DoctorName ASC";
+                            $sql    = "SELECT * FROM doctors ORDER BY doctor_name ASC";
                             $result = mysqli_query($conn, $sql);
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo "<tr>";
-                                    echo "<td>" . "Dr. " . $row['DoctorName'] . "</td>";
-                                    echo "<td>" . $row['DocSpec'] . "</td>";
+                                    echo "<td>" . "Dr. " . $row['doctor_name'] . "</td>";
+                                    echo "<td>" . $row['doctor_specialty'] . "</td>";
                                 }
                             } else {
                                 echo "<tr><td colspan='3'>No records found.</td></tr>";
@@ -102,20 +102,23 @@
                         </thead>
                         <tbody>
                             <?php
-                                $sql    = "SELECT * FROM patients ORDER BY AppDate ASC";
+                                $sql = "SELECT patients.*, doctors.doctor_name
+                           FROM patients
+                           JOIN doctors ON patients.doctor_id = doctors.doctor_id
+                           ORDER BY patients.appointment_date ASC";
                                 $result = mysqli_query($conn, $sql);
 
                                 if (mysqli_num_rows($result) > 0) {
                                     while ($row = mysqli_fetch_assoc($result)) {
                                         echo "<tr>";
-                                        echo "<td>" . $row['PatientName'] . "</td>";
-                                        echo "<td>" . $row['PatientAge'] . "</td>";
-                                        echo "<td>" . $row['PatientPhone'] . "</td>";
-                                        echo "<td>" . $row['PatientEmail'] . "</td>";
-                                        echo "<td>" . $row['DoctorName'] . "</td>";
-                                        echo "<td>" . $row['AppBranch'] . "</td>";
-                                        echo "<td>" . $row['AppDate'] . "</td>";
-                                        echo "<td>" . $row['App_at'] . "</td>";
+                                        echo "<td>" . $row['patient_name'] . "</td>";
+                                        echo "<td>" . $row['patient_age'] . "</td>";
+                                        echo "<td>" . $row['patient_phone'] . "</td>";
+                                        echo "<td>" . $row['patient_email'] . "</td>";
+                                        echo "<td>" . $row['doctor_name'] . "</td>";
+                                        echo "<td>" . $row['appointment_branch'] . "</td>";
+                                        echo "<td>" . $row['appointment_date'] . "</td>";
+                                        echo "<td>" . $row['appointment_created'] . "</td>";
                                     }
                                 } else {
                                     echo "<tr><td colspan='10'>No records found.</td></tr>";
@@ -129,6 +132,41 @@
 
                 <h2 id="Queries-information">Queries</h2>
                 <p>See what they ask</p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>Subject</th>
+                                <th>Message</th>
+                                <th>Time Added</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $sql    = "SELECT * FROM queries";
+                                $result = mysqli_query($conn, $sql);
+
+                                if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['query_user'] . "</td>";
+                                        echo "<td>" . $row['query_phone'] . "</td>";
+                                        echo "<td>" . $row['query_email'] . "</td>";
+                                        echo "<td>" . $row['query_title'] . "</td>";
+                                        echo "<td>" . $row['query_body'] . "</td>";
+                                        echo "<td>" . $row['query_created_at'] . "</td>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='10'>No records found.</td></tr>";
+                                }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

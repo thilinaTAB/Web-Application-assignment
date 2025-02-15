@@ -49,13 +49,13 @@ function redirectToService(type, id) {
 
 </script>
 
-<!-- Slider Start -->
+
  <section class="banner">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 col-md-12 col-xl-7">
         <br><br>
-        <div class="block">
+        <div class="block"  style="text-align: left;">
           <div class="divider mb-3"></div>
           <span class="text-uppercase text-sm letter-spacing" style="color:rgb(0, 0, 0);">
             Your Complete Health Care Partner
@@ -164,43 +164,45 @@ function redirectToService(type, id) {
         </div>
       </div>
     </section>
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta position-relative">
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="counter-stat">
-                <i class="icofont-doctor"></i>
-                <span class="h3">15</span>k
-                <p>Happy People</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="counter-stat">
-                <i class="icofont-flag"></i>
-                <span class="h3">500</span>+
-                <p>Surgery Comepleted</p>
-              </div>
-            </div>
 
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="counter-stat">
-                <i class="icofont-badge"></i>
-                <span class="h3">40</span>+
-                <p>Expert Doctors</p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-              <div class="counter-stat">
-                <i class="icofont-globe"></i>
-                <span class="h3">3</span>
-                <p>Local Branches</p>
-              </div>
-            </div>
+    <section class="cta-section">
+  <div class="container">
+    <div class="cta position-relative">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="counter-stat">
+            <i class="icofont-doctor"></i>
+            <span class="h3" data-count="15000">15</span>k
+            <p>Happy People</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="counter-stat">
+            <i class="icofont-flag"></i>
+            <span class="h3" data-count="500">500</span>+
+            <p>Surgery Completed</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="counter-stat">
+            <i class="icofont-badge"></i>
+            <span class="h3" data-count="40">40</span>+
+            <p>Expert Doctors</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+          <div class="counter-stat">
+            <i class="icofont-globe"></i>
+            <span class="h3" data-count="3">3</span>
+            <p>Local Branches</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
     <section class="section service gray-bg">
       <div class="container">
         <div class="row justify-content-center">

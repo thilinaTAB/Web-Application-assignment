@@ -116,5 +116,15 @@
 <script src="plugins/counterup/jquery.waypoints.min.js"></script>
 <script src="plugins/counterup/jquery.counterup.min.js"></script>
 
+<script>
+  $(document).ready(function() {
+    // Initialize the counter-up plugin
+    $('.counter-stat span').counterUp({
+      delay: 10,  // Delay between increments (in ms)
+      time: 2000  // Duration of the animation (in ms)
+    });
+  });
+</script>
+
   </body>
 </html>
