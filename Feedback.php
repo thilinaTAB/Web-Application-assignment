@@ -14,43 +14,43 @@
     </div>
 
     <div class="row align-items-center">
-      <div class="col-lg-6 testimonial-wrap offset-lg-6">
-        <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <?php
-                $sql    = "SELECT FbName, Topic, FbNote FROM feedback ORDER BY FbID DESC";
-                $result = mysqli_query($conn, $sql);
+  <div class="col-lg-6 testimonial-wrap offset-lg-6">
+    <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <?php
+            $sql    = "SELECT fb_username, feedback_topic, feedback_note FROM feedback ORDER BY feedback_id DESC";
+            $result = mysqli_query($conn, $sql);
 
-                if (! $result) {
-                    die("SQL Error: " . mysqli_error($conn));
+            if (! $result) {
+                die("SQL Error: " . mysqli_error($conn));
+            }
+
+            if (mysqli_num_rows($result) > 0) {
+                $active = true;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">
+                            <div class="testimonial-block">
+                              <div class="client-info">
+                                <h4>' . htmlspecialchars($row["feedback_topic"]) . '</h4>
+                                <span>' . htmlspecialchars($row["fb_username"]) . '</span>
+                              </div>
+                              <p>' . htmlspecialchars($row["feedback_note"]) . '</p>
+                              <i class="icofont-quote-right"></i>
+                            </div>
+                          </div>';
+                    $active = false;
                 }
+            } else {
+                echo '<div class="carousel-item active"><p>No feedback available yet.</p></div>';
+            }
 
-                if (mysqli_num_rows($result) > 0) {
-                    $active = true;
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="carousel-item ' . ($active ? 'active' : '') . '">
-                        <div class="testimonial-block">
-                          <div class="client-info">
-                            <h4>' . htmlspecialchars($row["Topic"]) . '</h4>
-                            <span>' . htmlspecialchars($row["FbName"]) . '</span>
-                          </div>
-                          <p>' . htmlspecialchars($row["FbNote"]) . '</p>
-                          <i class="icofont-quote-right"></i>
-                        </div>
-                      </div>';
-                        $active = false;
-                    }
-                } else {
-                    echo '<div class="carousel-item active"><p>No feedback available yet.</p></div>';
-                }
-
-                mysqli_close($conn);
-            ?>
-          </div>
-        </div>
+            mysqli_close($conn);
+        ?>
       </div>
     </div>
   </div>
+</div>
+
 
   <div class="container">
     <div class="row">
