@@ -1,59 +1,53 @@
 <?php
     include_once 'Header.php';
-    require 'Include\dbh.inc.php';
+    require 'Include/dbh.inc.php';
 
     $service_name        = "";
     $service_description = "";
 
-    // Check if type and ID are set in the URL
+    // If GET parameters are provided, display detailed service info.
     if (isset($_GET['type']) && isset($_GET['id'])) {
         $type = $_GET['type'];
         $id   = intval($_GET['id']); // Ensure ID is an integer
 
         // Define the appropriate query based on service type
         if ($type === 'hospital') {
-            // Use 'id' for hospital_services
-            $sql = "SELECT service_name AS name, description FROM hospital_services WHERE id = ?";
+            $sql = "SELECT service_name AS name, description FROM hospital_services WHERE hospserv_id = ?";
         } elseif ($type === 'laboratory') {
-            // Use 'serv_id' for laboratory_services
-            $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE serv_id = ?";
+            $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE labserv_id = ?";
         } else {
-            echo "<div class='container'><h3>Invalid service type.</h3></div>";
-            include_once 'Footer.php';
-            exit;
+            // Invalid type: set default values
+            $service_name        = "Our Services";
+            $service_description = "Explore our wide range of healthcare services.";
         }
 
-        // Prepare the SQL statement
-        $stmt = $conn->prepare($sql);
-        if ($stmt === false) {
-            die('SQL Error: ' . $conn->error); // Output the error if query preparation fails
+        // If a valid SQL was set, run the query
+        if (! empty($sql)) {
+            $stmt = $conn->prepare($sql);
+            if ($stmt === false) {
+                die('SQL Error: ' . $conn->error); // Output the error if query preparation fails
+            }
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($row = $result->fetch_assoc()) {
+                $service_name        = htmlspecialchars($row['name']);
+                $service_description = htmlspecialchars($row['description']);
+            } else {
+                $service_name        = "Service Not Found";
+                $service_description = "The service you are looking for does not exist.";
+            }
+            $stmt->close();
         }
-
-        // Bind parameters and execute
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($row = $result->fetch_assoc()) {
-            $service_name        = htmlspecialchars($row['name']);
-            $service_description = htmlspecialchars($row['description']);
-        } else {
-            echo "<div class='container'><h3>Service not found.</h3></div>";
-            include_once 'Footer.php';
-            exit;
-        }
-
-        $stmt->close();
     } else {
-        echo "<div class='container'><h3>Missing parameters.</h3></div>";
-        include_once 'Footer.php';
-        exit;
+        // No GET parameters provided – set default values for the services page
+        $service_name        = "Our Services";
+        $service_description = "Explore our wide range of healthcare and laboratory services.";
     }
 
     $conn->close();
 ?>
-
-
 
 <section class="page-title bg-1">
     <div class="overlay"></div>
@@ -62,21 +56,15 @@
             <div class="col-md-12">
                 <div class="block text-center">
                     <span class="text-white">Our services</span>
-                    <h1 class="text-capitalize mb-5 text-lg"><?php echo $service_name ? $service_name : "What We Do"; ?></h1>
+                    <h1 class="text-capitalize mb-5 text-lg">
+                        <?php echo $service_name; ?>
+                    </h1>
                     <p class="text-white"><?php echo $service_description; ?></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section>
-<div class="block text-center col-lg-12">
-    <br><p>Find our other Services</p>
-         <br> <h3>Hospital Services</h3>
-          </div>
-</section>
-
-
 
 <section class="section service-2">
     <div class="container">
@@ -260,7 +248,9 @@
                         We are pleased to offer you the
                         <span class="title-color">chance to have the healthy</span>
                     </h2>
-                    <a href="Appointment.php" class="btn btn-main-2 btn-round-full">Get appointment<i class="icofont-simple-right ml-2"></i></a>
+                    <a href="Appointment.php" class="btn btn-main-2 btn-round-full">Get appointment
+                        <i class="icofont-simple-right ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>

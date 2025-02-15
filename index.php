@@ -44,7 +44,7 @@ document.addEventListener("click", function(event) {
     }
 });
 function redirectToService(type, id) {
-    window.location.href = "service.php?type=" + type + "&id=" + id;
+    window.location.href = "service.php?type=" + encodeURIComponent(type) + "&id=" + encodeURIComponent(id);
 }
 
 </script>

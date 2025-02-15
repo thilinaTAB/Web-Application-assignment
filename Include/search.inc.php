@@ -7,10 +7,10 @@ if (isset($_GET['query'])) {
     $query = "%" . $_GET['query'] . "%"; // Prepare for LIKE search
 
     $sql = "
-        SELECT id, service_name AS name, 'hospital' AS type FROM hospital_services WHERE service_name LIKE ?
-        UNION
-        SELECT serv_id AS id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
-    ";
+        SELECT hospserv_id AS id, service_name AS name, 'hospital' AS type FROM hospital_services WHERE service_name LIKE ?
+UNION
+SELECT labserv_id AS id, test_name AS name, 'laboratory' AS type FROM laboratory_services WHERE test_name LIKE ?
+";
 
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
@@ -24,8 +24,9 @@ if (isset($_GET['query'])) {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
-            echo "<div><a href='service.php?type=" . htmlspecialchars($row['type']) . "&id=" . intval($row['id']) . "'>" .
-            "<strong>" . htmlspecialchars($row['name']) . "</strong></a></div>";
+            echo "<div onclick=\"redirectToService('" . htmlspecialchars($row['type']) . "', " . intval($row['id']) . ")\">";
+            echo "<strong>" . htmlspecialchars($row['name']) . "</strong>";
+            echo "</div>";
         }
     } else {
         echo "<div>No results found.</div>";
