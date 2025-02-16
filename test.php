@@ -1,4 +1,5 @@
 <?php
+/*
 require_once 'Include\dbh.inc.php'; // Ensure DB connection is included
 
 $adminUsername = "CCHAdmin";
@@ -19,3 +20,4 @@ if (mysqli_stmt_affected_rows($stmt) > 0) {
 
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
+*/
