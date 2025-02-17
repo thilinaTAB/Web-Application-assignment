@@ -132,14 +132,29 @@ window.onclick = function(event) {
               <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="index.php#about">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="service.php">Services</a>
-              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="service.php"
+                  id="dropdown03"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Services <i class="icofont-thin-down"></i
+                ></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                  <li>
+                    <a class="dropdown-item" href="service.php">See Our Services</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" target="_blank" href="LabPayment.php">Make a Payment</a>
+                  </li>
+                </ul>
 
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="doctor.html"
+                  href="doctorTab.php"
                   id="dropdown03"
                   data-toggle="dropdown"
                   aria-haspopup="true"
