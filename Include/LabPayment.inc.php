@@ -54,21 +54,23 @@ if (isset($_POST["pay_later"]) || isset($_POST["make_payment"])) {
     }
 
     // Insert a new record into lab_payments
-    $sql  = "INSERT INTO lab_payments (user_id, labserv_id, amount_paid, payment_status) VALUES (?, ?, ?, ?)";
+    $sql  = "INSERT INTO lab_payments (user_id, labUserName, labUserAge, labserv_id, amount_paid, payment_status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (! mysqli_stmt_prepare($stmt, $sql)) {
         header("location:../LabPayment.php?error=sqlerror");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "iids", $user_id, $LPId, $amount, $status);
+    mysqli_stmt_bind_param($stmt, "isiids", $user_id, $LPName, $LPAge, $LPId, $amount, $status);
     mysqli_stmt_execute($stmt);
     $labpayment_id = mysqli_insert_id($conn);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
 
     if (isset($_POST["pay_later"])) {
-        // For Pay Later, redirect to myprofile.php with a message to complete payment later.
-        header("location:../myprofile.php?payment=pending");
+        echo '<script>
+            alert("Please make your payment before get your lab service");
+            window.location.href = "../Index.php?payment=pending";
+          </script>';
         exit();
     } elseif (isset($_POST["make_payment"])) {
         // For Make Payment, redirect to CardPayment.php, passing the labpayment_id

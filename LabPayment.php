@@ -111,11 +111,11 @@
               </div>
             </div>
             <div class="d-flex gap-2 mt-3">
-              <button type="submit" name="pay_later" class="btn btn-main btn-round-full">
-                Pay Later <i class="icofont-simple-right ml-2"></i>
+            <button type="submit" name="make_payment" class="btn btn-main btn-round-full">
+                Make Online Payment <i class="icofont-simple-right ml-2"></i>
               </button>
-              <button type="submit" name="make_payment" class="btn btn-main btn-round-full">
-                Make Payment <i class="icofont-simple-right ml-2"></i>
+              <button type="submit" name="pay_later" class="btn btn-main btn-round-full">
+                Pay to Counter <i class="icofont-simple-right ml-2"></i>
               </button>
             </div>
           </form>

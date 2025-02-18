@@ -12,6 +12,7 @@
                 Hi! ' . htmlspecialchars($_SESSION['username']) . '
             </a></h3>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item text-white bg-dark" href="MyProfile.php">My Profile</a></li>
                 <li><a class="dropdown-item text-white bg-dark" href="Logout.php">Logout</a></li>
             </ul>
           </div>';
