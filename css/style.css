@@ -346,7 +346,14 @@ a:focus {
   font-size: 60px;
   line-height: 1.2;
   letter-spacing: -1.2px;
-  color: #ffffff;
+  color: #ffffff; /* Default color (white) */
+}
+
+/* Change color when screen width is 768px or smaller */
+@media screen and (max-width: 768px) {
+  .banner .block h1 {
+    color: rgb(0, 0, 0) !important; /* Force the color change */
+  }
 }
 
 .letter-spacing {
