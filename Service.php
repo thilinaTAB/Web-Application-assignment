@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
-                        <img src="images/service/service-2.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-5.jpg" alt="" class="img-fluid" />
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Cardiology</h4>
                             <p class="mb-4">
@@ -190,7 +190,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
-                        <img src="images/service/service-9.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-12.jpg" alt="" class="img-fluid" />
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">Lipid Profile</h4>
                             <p class="mb-4">Measures cholesterol and triglyceride levels.</p>
@@ -226,7 +226,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-block mb-5">
-                        <img src="images/service/service-10.jpg" alt="" class="img-fluid" />
+                        <img src="images/service/service-7.jpg" alt="" class="img-fluid" />
                         <div class="content">
                             <h4 class="mt-4 mb-2 title-color">COVID-19 PCR Test</h4>
                             <p class="mb-4">Detects the presence of SARS-CoV-2 virus.</p>
