@@ -78,7 +78,7 @@
 <div class="col-lg-12 col-sm-6 col-md-6">
     <div class="appoinment-wrap mt-5 mt-lg-0 pl-lg-5">
         <h2 class="mb-2 title-color">How Can We Help You?</h2>
-        <form id="q-form" class="appoinment-form" method="post" action="Include\Quaries.inc.php"
+        <form id="q-form" class="appoinment-form" method="post" action="Include\function.inc.php"
             onsubmit="return confirmSubmission();">
             <div class="row">
                 <div class="col-lg-9">

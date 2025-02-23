@@ -273,3 +273,110 @@ function createAppointment($conn, $user_id, $patientName, $patientAge, $patientP
     header("location: ../Appointment.php?error=none");
     exit();
 }
+
+// -------------------------------- LAB PAYMENT FUNCTIONS --------------------------------//
+
+function  LabPayment($conn, $user_id, $LPName, $LPAge, $LPId, $amount, $status){
+    $sql  = "SELECT price FROM laboratory_services WHERE labserv_id = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        header("location:../LabPayment.php?error=sqlerror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "i", $LPId);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if ($row = mysqli_fetch_assoc($result)) {
+        $amount = $row['price'];
+    } else {
+        header("location:../LabPayment.php?error=noservice");
+        exit();
+    }
+    mysqli_stmt_close($stmt);
+
+    // Determine payment status based on which button was pressed
+    if (isset($_POST["pay_later"])) {
+        $status = "Pending";
+    } elseif (isset($_POST["make_payment"])) {
+        $status = "Initiated"; // Temporary status until card processing is completed
+    }
+
+    // Insert a new record into lab_payments
+    $sql  = "INSERT INTO lab_payments (user_id, labUserName, labUserAge, labserv_id, amount_paid, payment_status) VALUES (?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        header("location:../LabPayment.php?error=sqlerror");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "isiids", $user_id, $LPName, $LPAge, $LPId, $amount, $status);
+    mysqli_stmt_execute($stmt);
+    $labpayment_id = mysqli_insert_id($conn);
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+
+    if (isset($_POST["pay_later"])) {
+        echo '<script>
+            alert("Please make your payment before get your lab service");
+            window.location.href = "../Index.php?payment=pending";
+          </script>';
+        exit();
+    } elseif (isset($_POST["make_payment"])) {
+        // For Make Payment, redirect to CardPayment.php, passing the labpayment_id
+        header("location:../CardPayment.php?labpayment_id=" . $labpayment_id);
+        exit();
+    }
+}
+
+// -------------------------------- QUERIES --------------------------------//
+
+
+// Function to check for empty fields
+function emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody)
+{
+    return empty($Qname) || empty($Qemail) || empty($Qphone) || empty($QTitle) || empty($Qbody);
+}
+
+// Function to insert query into the database
+function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody)
+{
+    $sql  = "INSERT INTO queries (query_user, query_email, query_phone, query_title, query_body) VALUES (?, ?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (! mysqli_stmt_prepare($stmt, $sql)) {
+        die("SQL preparation failed: " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssiss", $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
+
+    if (! mysqli_stmt_execute($stmt)) {
+        die("SQL execution failed: " . mysqli_error($conn));
+    }
+
+    mysqli_stmt_close($stmt);
+
+    // Redirect with success message
+    header("location: ../Contact.php?success=queriessubmitted");
+    exit();
+}
+
+if (isset($_POST["submit"])) {
+    require_once 'dbh.inc.php'; // Ensure database connection file is included
+
+    $Qname  = $_POST["Qname"];
+    $Qemail = $_POST["Qemail"];
+    $Qphone = $_POST["Qphone"];
+    $QTitle = $_POST["Qtitle"];
+    $Qbody  = $_POST["Qbody"];
+
+    // Check for empty fields
+    if (emptyQuaries($Qname, $Qemail, $Qphone, $QTitle, $Qbody)) {
+        header("location: ../Contact.php?error=emptyfields");
+        exit();
+    }
+
+    // Call function to submit query
+    submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
+} else {
+    header("location: ../Contact.php");
+    exit();
+}

@@ -43,8 +43,8 @@
             <div class="form-group mt-3">
                 <button type="submit" name="confirm_payment" class="btn btn-main btn-round-full">Confirm
                     Payment</button>
-                <button type="submit" name="cancel_payment" class="btn btn-secondary btn-round-full">Cancel
-                    Payment</button>
+                    <a href="LabPayment.php" class="btn btn-secondary btn-round-full">Cancel Payment</a>
+
             </div>
 
         </form>
