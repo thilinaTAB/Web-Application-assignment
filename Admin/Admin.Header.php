@@ -1,4 +1,3 @@
-
 <?php
     session_start();
 
@@ -13,18 +12,20 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-   <!-- bootstrap.min css -->
-   <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css" />
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="../plugins/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../plugins/bootstrap/css/font/bootstrap-icons.css" />
     <!-- Icon Font Css -->
     <link rel="stylesheet" href="../plugins/icofont/icofont.min.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="Admin.Style.css" />
 </head>
+
 <body>
 
     <?php
@@ -105,4 +106,3 @@
         }
 
     ?>
-

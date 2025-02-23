@@ -31,8 +31,12 @@
 <table class="table table-striped table-dark col-lg-6" style="margin-left:auto; margin-right:auto;">
     <thead>
         <tr>
-            <th class="bg-info"><h3 class="text-dark">Doctor's Name</h3></th>
-            <th class="bg-info"><h3 class="text-dark">Specialization</h3></th>
+            <th class="bg-info">
+                <h3 class="text-dark">Doctor's Name</h3>
+            </th>
+            <th class="bg-info">
+                <h3 class="text-dark">Specialization</h3>
+            </th>
         </tr>
     </thead>
     <tbody>

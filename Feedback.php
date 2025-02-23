@@ -3,21 +3,21 @@
     require_once 'Include/dbh.inc.php';
 ?>
 <section class="section testimonial2">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-6">
-        <div class="section-title">
-          <h2 class="mb-4">What they say about us</h2>
-          <div class="divider my-4"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-6">
+                <div class="section-title">
+                    <h2 class="mb-4">What they say about us</h2>
+                    <div class="divider my-4"></div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row align-items-center">
-  <div class="col-lg-6 testimonial-wrap offset-lg-6">
-    <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <?php
+        <div class="row align-items-center">
+            <div class="col-lg-6 testimonial-wrap offset-lg-6">
+                <div id="feedbackCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <?php
             $sql    = "SELECT fb_username, feedback_topic, feedback_note FROM feedback ORDER BY feedback_id DESC";
             $result = mysqli_query($conn, $sql);
 
@@ -46,24 +46,24 @@
 
             mysqli_close($conn);
         ?>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 offset-lg-6">
-        <div class="section-title d-flex flex-column justify-content-center align-items-center">
-          <a href="AddFeedback.php" class="btn btn-main-2 btn-round-full btn-icon">
-            Add Yours
-          </a>
-          <div class="divider mx-auto my-4"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-6">
+                    <div class="section-title d-flex flex-column justify-content-center align-items-center">
+                        <a href="AddFeedback.php" class="btn btn-main-2 btn-round-full btn-icon">
+                            Add Yours
+                        </a>
+                        <div class="divider mx-auto my-4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </section>
 
 <?php include_once 'Footer.php'; ?>
