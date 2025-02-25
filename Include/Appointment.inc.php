@@ -16,12 +16,12 @@ if (isset($_POST["appsubmit"])) {
     $patientAge        = trim($_POST["age"]);
     $patientPhone      = trim($_POST["phone"]);
     $patientEmail      = trim($_POST["email"]);
-    $doctorId          = trim($_POST["doctor"]); // Now receiving doctor_id
+    $doctorId          = trim($_POST["doctor"]);
     $appointmentBranch = trim($_POST["branch"]);
     $appointmentDate   = trim($_POST["date"]);
-    // The appointment time (Apptime) is part of the form but not used in the new schema.
 
-    // Include the database connection file (ensure it connects to cch_hospitals)
+
+    // database connection
     require_once 'dbh.inc.php';
 
     // Basic validation
@@ -30,7 +30,7 @@ if (isset($_POST["appsubmit"])) {
         exit();
     }
 
-    // Prepare SQL statement to insert the appointment into the patients table
+    //insert into the patients table
     $sql  = "INSERT INTO patients (user_id, patient_name, patient_age, patient_phone, patient_email, doctor_id, appointment_branch, appointment_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($conn);
     if (! mysqli_stmt_prepare($stmt, $sql)) {
@@ -38,7 +38,7 @@ if (isset($_POST["appsubmit"])) {
         exit();
     }
 
-    // Bind parameters: user_id is an integer, patient_age is integer, doctor_id is integer
+    // Bind parameters:
     mysqli_stmt_bind_param($stmt, "isississ", $user_id, $patientName, $patientAge, $patientPhone, $patientEmail, $doctorId, $appointmentBranch, $appointmentDate);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
