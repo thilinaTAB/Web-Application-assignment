@@ -115,14 +115,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex gap-2 mt-3">
-                            <button type="submit" name="make_payment" class="btn btn-main btn-round-full">
+                        <div class="d-flex mt-3">
+                            <button type="submit" name="make_payment" class="btn btn-main btn-round-full"
+                                style="margin-right: 15px;">
                                 Make Online Payment <i class="icofont-simple-right ml-2"></i>
                             </button>
                             <button type="submit" name="pay_later" class="btn btn-main btn-round-full">
                                 Pay to Counter <i class="icofont-simple-right ml-2"></i>
                             </button>
                         </div>
+
+
                     </form>
                 </div>
             </div>

@@ -127,7 +127,7 @@ function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     echo '<script>
-            alert("Account Created Successfully. Please Login");
+            alert("Account Created Successfully.");
             window.location.href = "../Admin/StaffDash.php?error=none";
           </script>';
     exit();
@@ -171,7 +171,11 @@ function loginUser($conn, $username, $password)
             // Storing the primary key (user_id) for future reference
             $_SESSION["userid"]   = $row["user_id"];
             $_SESSION["username"] = $row["username"];
-            header("location:../index.php");
+            echo '<script>
+                    alert("Hello! Welcome back");
+                    window.location.href = "../index.php?LoginSuccess";
+                  </script>';
+            exit();
             exit();
         }
     } else {
@@ -357,7 +361,7 @@ function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody)
     // Redirect with success message
     header("location: ../Contact.php?success=queriessubmitted");
     exit();
-}
+
 
 if (isset($_POST["submit"])) {
     require_once 'dbh.inc.php'; // Ensure database connection file is included
@@ -377,7 +381,7 @@ if (isset($_POST["submit"])) {
     // Call function to submit query
     submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
 }
-
+}
 
 // -------------------------------- USER PROFILE --------------------------------//
 

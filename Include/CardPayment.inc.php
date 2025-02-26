@@ -20,7 +20,10 @@ if (isset($_POST['confirm_payment'])) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("location:../Index.php?success=completed");
+    echo '<script>
+    alert("Thank you for your Payment! Visit your Profile for details");
+    window.location.href = "../MyProfile.php?LoginSuccess";
+  </script>';
     exit();
 } elseif (isset($_POST['cancel_payment'])) {
     header("location:../Index.php?cancel=failed");
