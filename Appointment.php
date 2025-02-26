@@ -144,44 +144,6 @@
     </div>
     </div>
 </section>
-
-<script>
-function confirmSubmission() {
-    // Gather form data
-    const name = document.getElementById("name").value;
-    const age = document.getElementById("age").value;
-    const phone = document.getElementById("phone").value;
-    const email = document.getElementById("email").value;
-    const doctorSelect = document.getElementById("doctor");
-    const doctorName = doctorSelect.options[doctorSelect.selectedIndex].text;
-    const branch = document.getElementById("branch").value;
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
-
-    // Construct the confirmation message
-    const confirmationMessage = `
-        Please confirm your appointment details:
-        Name: ${name}
-        Age: ${age}
-        Phone: ${phone}
-        Email: ${email}
-        Doctor ID: ${doctor}
-        Branch: ${branch}
-        Date: ${date}
-        Time: ${time}
-    `;
-
-    // Show confirmation dialog
-    if (confirm(confirmationMessage)) {
-        // Show success alert after submission
-        alert("Appointment submitted successfully!\nWe will contact you soon to verify your appointment");
-        // Submit the form
-        document.getElementById("appointment-form").submit();
-        window.close();
-    }
-}
-</script>
-
 <?php
     include_once 'Footer.php';
 ?>

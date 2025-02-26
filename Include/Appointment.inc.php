@@ -43,6 +43,11 @@ if (isset($_POST["appsubmit"])) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+    echo '<script>
+            alert("Appointment submitted successfully!\nWe will contact you soon to verify your appointment");
+            window.location.href = "../index.php?Success=Appointment";
+          </script>';
+exit();
     header("location:../Appointment.php?success=appointmentmade");
     exit();
 } else {
