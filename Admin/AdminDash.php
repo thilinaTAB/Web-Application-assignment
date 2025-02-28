@@ -87,12 +87,34 @@
 
             <!-- Display Doctors Table with Delete Option -->
             <?php displayDoctorsTable($conn, true); ?>
+            <script>
+            function confirmDelete(doctorId) {
+                if (confirm("Confirm deletion of this Doctor details?")) {
+                    window.location.href = "AdminDash.php";
+                }
+            }
+            </script>
 
             <!-- Display Appointments Table with Delete Option -->
             <?php displayAppointmentsTable($conn, true); ?>
+            <script>
+            function confirmDelete(doctorId) {
+                if (confirm("Confirm deletion of this Appointment details?")) {
+                    window.location.href = "AdminDash.php";
+                }
+            }
+            </script>
 
             <!-- Display Queries Table with Delete Option -->
             <?php displayQueriesTable($conn, true); ?>
+            <script>
+            function confirmDelete(doctorId) {
+                if (confirm("Confirm deletion of this Query details?")) {
+                    window.location.href = "AdminDash.php";
+                }
+            }
+            </script>
+
         </div>
     </div>
 </div>

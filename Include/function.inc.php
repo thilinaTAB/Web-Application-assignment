@@ -176,7 +176,6 @@ function loginUser($conn, $username, $password)
                     window.location.href = "../index.php?LoginSuccess";
                   </script>';
             exit();
-            exit();
         }
     } else {
         echo '<script>

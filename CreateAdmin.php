@@ -3,7 +3,7 @@
 require_once 'Include\dbh.inc.php'; // Ensure DB connection is included
 
 $adminUsername = "CCHAdmin";
-$adminPassword = "CCHpw"; // Change this to your actual password
+$adminPassword = "CCHpw"; 
 
 $hashedPassword = password_hash($adminPassword, PASSWORD_DEFAULT); // Secure hashing
 
