@@ -43,6 +43,11 @@
                 mysqli_stmt_bind_param($stmt, "ss", $doctor_name, $specialization);
                 mysqli_stmt_execute($stmt);
             }
+            echo '<script>
+            alert("Doctor Details Added");
+            window.location.href = "AdminDash.php";
+          </script>';
+    exit();
         }
 
         // Handle deletion of doctors
