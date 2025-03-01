@@ -128,7 +128,7 @@ function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $
     mysqli_stmt_close($stmt);
     echo '<script>
             alert("Account Created Successfully.");
-            window.location.href = "../Admin/StaffDash.php?error=none";
+            window.location.href = "../Admin/StaffList.php?error=none";
           </script>';
     exit();
 }

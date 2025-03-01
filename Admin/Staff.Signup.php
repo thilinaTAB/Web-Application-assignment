@@ -18,7 +18,7 @@
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="sName" id="sName"
-                                            placeholder="Name" required>
+                                            placeholder="Full Name" required>
                                         <label for="uname" class="form-label">Member Name</label>
                                     </div>
                                 </div>
@@ -53,7 +53,7 @@
                                 <div class="col-12">
                                     <div class="form-floating mb-3">
                                         <input type="text" class="form-control" name="sRole" id="sRole"
-                                            placeholder="choose" required>
+                                            placeholder="Position" required>
                                         <label for="userid" class="form-label">Position</label>
                                     </div>
                                 </div>

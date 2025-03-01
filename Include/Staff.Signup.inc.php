@@ -35,6 +35,6 @@ if (isset($_POST["submit"])) {
 
     createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $sRole, $sPassword);
 } else {
-    header("location:../Admin\StaffDash.php");
+    header("location:../Admin\AdminDash.php");
     exit();
 }
