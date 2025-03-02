@@ -1,8 +1,8 @@
 <?php
 $serverName = "localhost";
-$dbUserName = "Admin";
-$dbPassword = "qYGJo!2DoxJ9GxZv";
-$dbName     = "care_compass_db";
+$dbUserName = "CCHAdmin";
+$dbPassword = "2snG@MhqBoguDXR5";
+$dbName     = "cch_hospitals_db";
 
 $conn = mysqli_connect($serverName, $dbUserName, $dbPassword, $dbName);
 

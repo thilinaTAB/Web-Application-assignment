@@ -5,8 +5,11 @@
     if (isset($_GET['logout'])) {
         session_unset();
         session_destroy();
-        header("location:../Login.php");
-        exit();
+            echo '<script>
+            alert("Log out succussfully");
+            window.location.href = "AdminDash.php?error=none";
+            </script>';
+            exit();
     }
 ?>
 
