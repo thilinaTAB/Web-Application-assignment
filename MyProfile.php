@@ -13,6 +13,7 @@
     // Fetch user profile and payment records
     $user     = getUserProfile($conn, $user_id);
     $payments = getUserPayments($conn, $user_id);
+    $appointments = getUserAppointments($conn, $user_id);
 ?>
 
 <div class="container mt-5">
@@ -70,6 +71,51 @@
                 </div>
             </div>
         </div>
+
+        <!-- Appointment Information -->
+        <div class="col-md-9">
+            <div class="card mb-4">
+                <div class="card-header">
+                    Appointment Information
+                </div>
+                <div class="card-body">
+                    <?php if (!empty($appointments)): ?>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Patient Name</th>
+                                    <th>Patient Age</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Doctor Name</th>
+                                    <th>Branch</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($appointments as $appointment): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($appointment['patient_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($appointment['patient_age']); ?></td>
+                                    <td><?php echo htmlspecialchars($appointment['patient_phone']); ?></td>
+                                    <td><?php echo htmlspecialchars($appointment['patient_email']); ?></td>
+                                    <td><?php echo "Dr. ".htmlspecialchars($appointment['doctor_name']); ?></td>
+                                    <td><?php echo htmlspecialchars($appointment['appointment_branch']); ?></td>
+                                    <td><?php echo htmlspecialchars($appointment['appointment_date']); ?></td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php else: ?>
+                    <p>No appointment records found.</p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
 

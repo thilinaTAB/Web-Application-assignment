@@ -172,7 +172,7 @@ function loginUser($conn, $username, $password)
             $_SESSION["userid"]   = $row["user_id"];
             $_SESSION["username"] = $row["username"];
             echo '<script>
-                    alert("Hello! Welcome back");
+                    alert("Hello! Welcome to CC Hospitals");
                     window.location.href = "../index.php?LoginSuccess";
                   </script>';
             exit();
@@ -421,4 +421,30 @@ function getUserPayments($conn, $user_id)
     }
     mysqli_stmt_close($stmt);
     return $payments;
+}
+
+function getUserAppointments($conn, $user_id)
+{
+    $sql = "SELECT p.*, d.doctor_name 
+            FROM patients p
+            JOIN doctors d ON p.doctor_id = d.doctor_id
+            WHERE p.user_id = ?
+            ORDER BY p.appointment_date DESC";
+    
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        die("SQL error: " . mysqli_error($conn));
+    }
+    
+    mysqli_stmt_bind_param($stmt, "i", $user_id);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    
+    $appointments = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $appointments[] = $row;
+    }
+    
+    mysqli_stmt_close($stmt);
+    return $appointments;
 }
