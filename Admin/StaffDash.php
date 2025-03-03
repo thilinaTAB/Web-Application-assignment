@@ -10,23 +10,36 @@
     include_once 'common_tables.php';
 ?>
 
-<!-- Top Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-        <a class="navbar-brand" href="../Logout.php">
-            <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid" />
-        </a>
+  <div class="container-fluid">
+    <div class="row w-100">
+      <!-- Left: Logo -->
+      <div class="col-4 d-flex align-items-center">
+         <a class="navbar-brand" href="../Logout.php">
+            <img src="../images/CCH_LOGO.png" alt="logo" class="img-fluid">
+         </a>
+      </div>
+      <!-- Center: Title -->
+      <div class="col-4 d-flex justify-content-center align-items-center">
+         <h1 class="mb-0">Staff Dashboard</h1>
+      </div>
+      <!-- Right: Username Dropdown -->
+      <div class="col-4 d-flex justify-content-end align-items-center">
+            <?php
+                if (isset($_SESSION["staffname"])) {
+                    echo '<div class="dropdown">
+                    <h5>
+                        <class="nav-link dropdown-toggle text-dark">
+                         Hi! ' . htmlspecialchars($_SESSION["staffname"]) . '
+                        </a>
+                    </h5>
+                    <a href="?logout=true" class="btn btn-danger">Logout</a>
+                </div>';
+                }
+            ?>
+      </div>
     </div>
-    <div class="container-fluid">
-        <h1>
-            <a class="navbar-brand" href="#">Staff Dashboard</a>
-        </h1>
-        <div class="ms-auto">
-            <a href="?logout=true" class="btn btn-danger">
-                Logout
-            </a>
-        </div>
-    </div>
+  </div>
 </nav>
 
 <div class="container-fluid">
