@@ -69,8 +69,19 @@
 
         <!-- Main Content -->
         <div class="col-md-10 content">
-            <!-- Add Doctor Form -->
-            <form method="post" class="mb-4">
+
+            <!-- Display Doctors Table with Delete Option -->
+            <?php displayDoctorsTable($conn, true); ?>
+            <script>
+            function confirmDelete(doctorId) {
+                if (confirm("Confirm deletion of this Doctor details?")) {
+                    window.location.href = "AdminDash.php";
+                }
+            }
+            </script>
+
+             <!-- Add Doctor Form -->
+             <form method="post" class="mb-4">
                 <div class="row">
                     <div class="col-md-5">
                         <input type="text" name="doctor_name" class="form-control" placeholder="Doctor's Name" required>
@@ -84,16 +95,6 @@
                     </div>
                 </div>
             </form>
-
-            <!-- Display Doctors Table with Delete Option -->
-            <?php displayDoctorsTable($conn, true); ?>
-            <script>
-            function confirmDelete(doctorId) {
-                if (confirm("Confirm deletion of this Doctor details?")) {
-                    window.location.href = "AdminDash.php";
-                }
-            }
-            </script>
 
             <!-- Display Appointments Table with Delete Option -->
             <?php displayAppointmentsTable($conn, true); ?>
