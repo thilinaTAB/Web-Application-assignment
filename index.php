@@ -336,15 +336,14 @@ function redirectToService(type, id) {
                     <h2 class="mb-4">Meet Our Specialist</h2>
                     <div class="divider mx-auto my-4"></div>
                     <p>
-                        Today’s users expect effortless experiences. Don’t let essential
-                        people and processes stay stuck in the past. Speed it up, skip
-                        the hassles
+                    A team of highly skilled professionals committed to providing expert care, 
+                    personalized treatments, and compassionate support to ensure your well-being.
                     </p>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 offset-lg-4">
-            <a href="DoctorTab.php" target="_blank" class="btn btn-main btn-round-full">See Today Avialable Doctors</a>
+            <a href="DoctorTab.php" class="btn btn-main btn-round-full">See Today Avialable Doctors</a>
         </div>
     </div>
 
