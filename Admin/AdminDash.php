@@ -86,8 +86,8 @@
             }
             </script>
 
-             <!-- Add Doctor Form -->
-             <form method="post" class="mb-4">
+            <!-- Add Doctor Form -->
+            <form method="post" class="mb-4">
                 <div class="row">
                     <div class="col-md-5">
                         <input type="text" name="doctor_name" class="form-control" placeholder="Doctor's Name" required>
