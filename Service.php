@@ -49,6 +49,8 @@
     $conn->close();
 ?>
 
+
+
 <section class="page-title bg-1">
     <div class="overlay"></div>
     <div class="container">
@@ -66,7 +68,15 @@
     </div>
 </section>
 
+
+
 <section class="section service-2">
+<section>
+    <div class="block text-center col-lg-12">
+        <h3>Hospital Services</h3>
+        <br>
+    </div>
+</section>
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
