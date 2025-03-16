@@ -59,6 +59,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="RegMemberList.php"
+                        class="nav-link                                                                                                                                                                                                                                                                                                                                                                   <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
+                        <i class="fas fa-users"></i> Registered Members
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="Payments.php"
                         class="nav-link                                                                                                                                                                                                                                                                                                                                                                  <?php echo(strpos($_SERVER['REQUEST_URI'], 'patient-information') !== false) ? 'active' : ''; ?>">
                         <i class="fas fa-users"></i> Lab Payments

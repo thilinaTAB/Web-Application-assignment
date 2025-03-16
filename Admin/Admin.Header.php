@@ -79,6 +79,19 @@
             }
         }
 
+         // Handle deletion of staff
+         if (isset($_GET['delete_users'])) {
+            $user_id = $_GET['delete_users'];
+
+            $sql  = "DELETE FROM users WHERE user_id = ?";
+            $stmt = mysqli_stmt_init($conn);
+
+            if (mysqli_stmt_prepare($stmt, $sql)) {
+                mysqli_stmt_bind_param($stmt, "i", $user_id);
+                mysqli_stmt_execute($stmt);
+            }
+        }
+
         // Handle deletion of Appointments
         if (isset($_GET['delete_patient'])) {
             $patient_id = $_GET['delete_patient'];
