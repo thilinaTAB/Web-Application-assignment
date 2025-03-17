@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css?family=Exo:500,600,700|Roboto&display=swap");
 html {
   overflow-x: hidden;
@@ -344,7 +343,7 @@ a:focus {
 /* Change color when screen width is 768px or smaller */
 @media screen and (max-width: 768px) {
   .banner .block h1 {
-    color: rgb(0, 0, 0) !important; /* Force the color change */
+    color: rgb(190, 8, 129) !important; /* Force the color change */
   }
 }
 
@@ -606,10 +605,6 @@ a:focus {
     display: none;
   }
 }
-
-/*=================================================================
-  Single Blog Page
-==================================================================*/
 
 .footer {
   padding-bottom: 10px;
