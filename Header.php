@@ -5,8 +5,8 @@
 
     echo '<div style="position: absolute; top: 10px; right: 10px;">';
 
+    //for show name for logged in members
     if (isset($_SESSION['username'])) {
-        // If the user is logged in, show a dropdown menu
         echo '<div class="dropdown">
             <h3><a class="nav-link dropdown-toggle text-white" href="#" id="dropdownMenuButton" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Hi! ' . htmlspecialchars($_SESSION['username']) . '
@@ -17,7 +17,6 @@
             </ul>
           </div>';
     } else {
-        // If not logged in, show the Login link
         echo '<a href="Login.php" class="nav-link text-white">Login</a>';
     }
 
@@ -32,7 +31,6 @@ function toggleDropdown() {
     dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
 }
 
-// Close dropdown if clicked outside
 window.onclick = function(event) {
     if (!event.target.matches("button")) {
         var dropdown = document.getElementById("dropdownMenu");
@@ -61,7 +59,6 @@ window.onclick = function(event) {
     <link rel="stylesheet" href="plugins/bootstrap/css/font/bootstrap-icons.css" />
     <!-- Icon Font Css -->
     <link rel="stylesheet" href="plugins/icofont/icofont.min.css" />
-    <!-- Slick Slider  CSS -->
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css" />
 

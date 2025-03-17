@@ -79,16 +79,14 @@
                                     <select class="form-control" id="doctor" name="doctor" required>
                                         <option value="">Select Doctor</option>
                                         <?php
-                                        // Include the database connection file (now pointing to cch_hospitals)
+                                        // Include the database connection
                                         include_once 'Include/dbh.inc.php';
 
-                                        // Query to fetch doctors with their id, name, and specialty
+                                       
                                         $sql    = "SELECT doctor_id, doctor_name, doctor_specialty FROM doctors";
                                         $result = mysqli_query($conn, $sql);
-
-                                        // Check if there are results
-                                        if (mysqli_num_rows($result) > 0) {
-                                            // Loop through each row and create an option tag
+                              
+                                        if (mysqli_num_rows($result) > 0) {                                         
                                             while ($row = mysqli_fetch_assoc($result)) {
                                                 // Combine doctor name with specialty
                                                 $doctorInfo = "Dr. " . $row['doctor_name'] . " - " . $row['doctor_specialty'];
@@ -120,8 +118,6 @@
                                 </div>
                             </div>
 
-                            <!-- The appointment time field is kept in the form for now,
-                             but note it is not used in the new database schema -->
                             <div class="col-lg-6">
                                 <div class="form-group">
                                     <select class="form-control" id="time" name="Apptime" required>

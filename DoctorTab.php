@@ -43,8 +43,6 @@
         <?php
             // Check if search parameter is set
             $search = isset($_GET['search']) ? $_GET['search'] : '';
-
-            // SQL query with search functionality using new column names
             $sql    = "SELECT * FROM doctors WHERE doctor_name LIKE '%$search%' ORDER BY doctor_name ASC";
             $result = mysqli_query($conn, $sql);
 

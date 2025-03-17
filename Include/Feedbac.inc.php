@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session to access login data
+session_start();
 
 // Function to check for empty fields
 function emptyfb($fbName, $FbTitle, $fbNote)
@@ -8,7 +8,6 @@ function emptyfb($fbName, $FbTitle, $fbNote)
 }
 
 // Function to insert feedback into the database
-// Now accepts the logged-in user's id as $userId
 function submitFB($conn, $userId, $fbName, $FbTitle, $fbNote)
 {
     $sql  = "INSERT INTO feedback (user_id, fb_username, feedback_topic, feedback_note) VALUES (?, ?, ?, ?)";
@@ -30,7 +29,7 @@ function submitFB($conn, $userId, $fbName, $FbTitle, $fbNote)
 
 // Check if form was submitted
 if (isset($_POST["submit"])) {
-    require_once 'dbh.inc.php'; // Ensure database connection file is included
+    require_once 'dbh.inc.php'; 
 
     // Check if user is logged in
     if (! isset($_SESSION['userid'])) {
@@ -38,8 +37,8 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    $userId  = $_SESSION['userid']; // Get user id from session
-    $fbName  = $_POST["name"];      // Display name input
+    $userId  = $_SESSION['userid']; 
+    $fbName  = $_POST["name"];
     $FbTitle = $_POST["FbTitle"];
     $fbNote  = $_POST["fbNote"];
 
@@ -49,7 +48,7 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    // Call function to submit feedback with user id from session
+    //submit feedback
     submitFB($conn, $userId, $fbName, $FbTitle, $fbNote);
 } else {
     header("location: ../AddFeedback.php");

@@ -122,7 +122,6 @@ function createNewStaff($conn, $sName, $sNIC, $sContact, $staffId, $staffMail, $
     }
 
     $hashedPwd = password_hash($sPassword, PASSWORD_DEFAULT);
-    // Adjust binding types as needed. Here all fields are treated as strings.
     mysqli_stmt_bind_param($stmt, "sssssss", $sName, $sNIC, $sContact, $staffId, $sRole, $staffMail, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -168,7 +167,6 @@ function loginUser($conn, $username, $password)
             exit();
         } else {
             session_start();
-            // Storing the primary key (user_id) for future reference
             $_SESSION["userid"]   = $row["user_id"];
             $_SESSION["username"] = $row["username"];
             echo '<script>
@@ -269,7 +267,7 @@ function createAppointment($conn, $user_id, $patientName, $patientAge, $patientP
         header("location:../Appointment.php?error=stmtfailed");
         exit();
     }
-    // Bind parameters: user_id & doctor_id as integers; rest as strings (patient_age is an integer)
+
     mysqli_stmt_bind_param($stmt, "isississ", $user_id, $patientName, $patientAge, $patientPhone, $patientEmail, $doctorId, $appBranch, $patientDate);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
@@ -297,7 +295,6 @@ function  LabPayment($conn, $user_id, $LPName, $LPAge, $LPId, $amount, $status){
     }
     mysqli_stmt_close($stmt);
 
-    // Determine payment status based on which button was pressed
     if (isset($_POST["pay_later"])) {
         $status = "Pending";
     } elseif (isset($_POST["make_payment"])) {
@@ -324,7 +321,6 @@ function  LabPayment($conn, $user_id, $LPName, $LPAge, $LPId, $amount, $status){
           </script>';
         exit();
     } elseif (isset($_POST["make_payment"])) {
-        // For Make Payment, redirect to CardPayment.php, passing the labpayment_id
         header("location:../CardPayment.php?labpayment_id=" . $labpayment_id);
         exit();
     }
@@ -356,14 +352,12 @@ function submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody)
     }
 
     mysqli_stmt_close($stmt);
-
-    // Redirect with success message
     header("location: ../Contact.php?success=queriessubmitted");
     exit();
 
 
 if (isset($_POST["submit"])) {
-    require_once 'dbh.inc.php'; // Ensure database connection file is included
+    require_once 'dbh.inc.php';
 
     $Qname  = $_POST["Qname"];
     $Qemail = $_POST["Qemail"];
@@ -377,14 +371,14 @@ if (isset($_POST["submit"])) {
         exit();
     }
 
-    // Call function to submit query
+    //submit query
     submitQuaries($conn, $Qname, $Qemail, $Qphone, $QTitle, $Qbody);
 }
 }
 
 // -------------------------------- USER PROFILE --------------------------------//
 
-// Function to fetch the user's profile data from the users table
+//user's profile table
 function getUserProfile($conn, $user_id)
 {
     $sql  = "SELECT * FROM users WHERE user_id = ?";
@@ -400,7 +394,7 @@ function getUserProfile($conn, $user_id)
     return $user;
 }
 
-// Function to fetch the lab payment records for the user, including lab service details
+//lab payment records
 function getUserPayments($conn, $user_id)
 {
     $sql = "SELECT lp.*, ls.test_name

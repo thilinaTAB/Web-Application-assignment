@@ -11,14 +11,13 @@ if (isset($_POST["pay_later"]) || isset($_POST["make_payment"])) {
 
     $user_id = $_SESSION['userid'];
 
-    // Retrieve and trim form inputs
     $LPName  = trim($_POST["LPname"]);
     $LPAge   = trim($_POST["LPage"]);
     $LPPhone = trim($_POST["LPphone"]);
     $LPEmail = trim($_POST["LPemail"]);
-    $LPId    = trim($_POST["service"]); // labserv_id
-    $LPDate  = trim($_POST["LPdate"]);  // date of payment (if needed)
-    $LPtype  = trim($_POST["paytype"]); // Payment method
+    $LPId    = trim($_POST["service"]); 
+    $LPDate  = trim($_POST["LPdate"]); 
+    $LPtype  = trim($_POST["paytype"]);
 
     
     require_once 'dbh.inc.php';
@@ -29,8 +28,7 @@ if (isset($_POST["pay_later"]) || isset($_POST["make_payment"])) {
         header("location:../LabPayment.php?error=emptyfields");
         exit();
     }
-
-    // Fetch the amount (price) for the selected lab service
+    
     LabPayment($conn, $user_id, $LPName, $LPAge, $LPId, $amount, $status);
     
 } else {

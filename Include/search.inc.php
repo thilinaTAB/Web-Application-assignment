@@ -1,7 +1,5 @@
 <?php
-require 'dbh.inc.php'; // Ensure correct DB connection
-
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Enable error reporting for MySQL
+require 'dbh.inc.php';
 
 if (isset($_GET['query'])) {
     $query = "%" . $_GET['query'] . "%"; // Prepare for LIKE search
@@ -15,7 +13,7 @@ SELECT labserv_id AS id, test_name AS name, 'laboratory' AS type FROM laboratory
     // Prepare the SQL statement
     $stmt = $conn->prepare($sql);
     if (! $stmt) {
-        die('SQL error: ' . $conn->error); // Shows the error if the query preparation fails
+        die('SQL error: ' . $conn->error); // Shows the error
     }
 
     $stmt->bind_param("ss", $query, $query);

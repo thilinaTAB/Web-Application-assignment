@@ -9,8 +9,6 @@ require_once 'dbh.inc.php';
 
 if (isset($_POST['confirm_payment'])) {
     $labpayment_id = intval($_POST['labpayment_id']);
-    // Here you could add real card processing logic.
-    // For now, we assume payment is successful.
     $sql  = "UPDATE lab_payments SET payment_status = 'Completed' WHERE labpayment_id = ?";
     $stmt = mysqli_stmt_init($conn);
     if (! mysqli_stmt_prepare($stmt, $sql)) {

@@ -89,9 +89,8 @@
     </div>
 </footer>
 
-<!--
-    Essential Scripts
-    =====================================-->
+<!-- Essential Scripts 
+ =====================================-->
 
 <!-- Main jQuery -->
 <script src="plugins/jquery/jquery.js"></script>

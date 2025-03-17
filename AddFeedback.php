@@ -17,7 +17,7 @@
     <div class="d-flex justify-content-end position-relative">
         <?php
                     if (isset($_SESSION["username"])) {
-                        // If the user is logged in, display their name and a dropdown with a logout option
+                        // display username
                         echo '
                   <h3><a
                     class="nav-link dropdown-toggle"
@@ -35,7 +35,7 @@
                     </li>
                   </ul></h3>';
                     } else {
-                        // If the user is not logged in, display a link to the login page
+                        // If not logged in, display login page
                         echo '<a class="nav-link" href="Login.php">Login</a>';
                     }
 
@@ -111,7 +111,7 @@
 </section>
 
 <script>
-// Show popup if feedback was successfully submitted
+// Show popup successfully submitted
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success') && urlParams.get('success') === 'feedbacksubmitted') {

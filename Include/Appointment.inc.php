@@ -8,10 +8,8 @@ if (isset($_POST["appsubmit"])) {
         exit();
     }
 
-    // Retrieve the logged-in user's id
     $user_id = $_SESSION['userid'];
 
-    // Retrieve and trim form inputs
     $patientName       = trim($_POST["name"]);
     $patientAge        = trim($_POST["age"]);
     $patientPhone      = trim($_POST["phone"]);
@@ -24,7 +22,7 @@ if (isset($_POST["appsubmit"])) {
     // database connection
     require_once 'dbh.inc.php';
 
-    // Basic validation
+    //validation
     if (empty($patientName) || empty($patientAge) || empty($patientPhone) || empty($patientEmail) || empty($doctorId) || empty($appointmentBranch) || empty($appointmentDate)) {
         header("location:../Appointment.php?error=emptyfields");
         exit();

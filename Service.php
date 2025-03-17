@@ -5,27 +5,24 @@
     $service_name        = "";
     $service_description = "";
 
-    // If GET parameters are provided, display detailed service info.
     if (isset($_GET['type']) && isset($_GET['id'])) {
         $type = $_GET['type'];
-        $id   = intval($_GET['id']); // Ensure ID is an integer
+        $id   = intval($_GET['id']);
 
-        // Define the appropriate query based on service type
+        //service type
         if ($type === 'hospital') {
             $sql = "SELECT service_name AS name, description FROM hospital_services WHERE hospserv_id = ?";
         } elseif ($type === 'laboratory') {
             $sql = "SELECT test_name AS name, test_description AS description FROM laboratory_services WHERE labserv_id = ?";
         } else {
-            // Invalid type: set default values
             $service_name        = "Our Services";
             $service_description = "Explore our wide range of healthcare services.";
         }
 
-        // If a valid SQL was set, run the query
         if (! empty($sql)) {
             $stmt = $conn->prepare($sql);
             if ($stmt === false) {
-                die('SQL Error: ' . $conn->error); // Output the error if query preparation fails
+                die('SQL Error: ' . $conn->error);
             }
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -41,7 +38,6 @@
             $stmt->close();
         }
     } else {
-        // No GET parameters provided – set default values for the services page
         $service_name        = "Our Services";
         $service_description = "Explore our wide range of healthcare and laboratory services.";
     }

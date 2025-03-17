@@ -1,11 +1,14 @@
 <?php
+
 /*
-require_once 'Include\dbh.inc.php'; // Ensure DB connection is included
+NOTE: THIS CODE SHOULD BE RUN AT FIRST TIME FOR CREATE ADMIN ACCOUNT. AFTER THAT PLEASE DELETE THAT FILE.
+
+require_once 'Include\dbh.inc.php';
 
 $adminUsername = "CCHAdmin";
 $adminPassword = "CCHpw"; 
 
-$hashedPassword = password_hash($adminPassword, PASSWORD_DEFAULT); // Secure hashing
+$hashedPassword = password_hash($adminPassword, PASSWORD_DEFAULT);
 
 $sql  = "INSERT INTO admin (username, password) VALUES (?, ?)";
 $stmt = mysqli_prepare($conn, $sql);

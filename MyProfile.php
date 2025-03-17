@@ -10,7 +10,6 @@
     require_once 'Include/dbh.inc.php';
     require_once 'Include\function.inc.php';
 
-    // Fetch user profile and payment records
     $user     = getUserProfile($conn, $user_id);
     $payments = getUserPayments($conn, $user_id);
     $appointments = getUserAppointments($conn, $user_id);

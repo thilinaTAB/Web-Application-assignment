@@ -127,14 +127,14 @@
 </section>
 
 <script>
-// Show popup if query was successfully submitted
+// Show popup successfully submitted
 window.onload = function() {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success') && urlParams.get('success') === 'queriessubmitted') {
         alert("Thank you. We will respond you soon! 😊");
         setTimeout(function() {
             window.location.href = "Contact.php";
-        }, 500); // Wait 500ms before redirecting
+        }, 500);
     }
 };
 </script>

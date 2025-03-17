@@ -78,10 +78,9 @@
                                     <select class="form-control" id="service" name="service" required>
                                         <option value="">Select Lab Service</option>
                                         <?php
-                        // Include the database connection file
+
                         include_once 'Include/dbh.inc.php';
 
-                        // Query to fetch lab services
                         $sql    = "SELECT labserv_id, test_name, price FROM laboratory_services";
                         $result = mysqli_query($conn, $sql);
 
